@@ -1,0 +1,57 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background: var(--black);
+}
+
+nav,
+footer,
+header {
+  display: block;
+}
+
+ul li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header {
+  margin-top: 0;
+}
+
+.footer {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+:root {
+  --dark-grey: #606578;
+  --almost-white: #f7f7f7;
+  --blue: #0041d5;
+  --light-grey: #ececec;
+  --light-blue: #218be2;
+  --royal-blue: #031a65;
+  --darkest-grey: #2d303d;
+  --medium-grey: #dcdcdc;
+  --black: #000921;
+  --white: #fff;
+}
+
+:root {
+  --font-family: "Geologica", sans-serif;
+  --second-family: "Cormorant", sans-serif;
+}
+
+.container {
+  max-width: 1200px; /* Ширина сайта из Figma */
+  margin: 0 auto; /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
+  padding: 0 20px; /* Чтобы на мобилках текст не касался краев */
+}/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,43 @@
+
+
+
+.slider-container {
+    position: relative;
+    width: 100%;       /* Или ширина из Figma, например 800px */
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;  /* Прячем лишние слайды */
+    border-radius: 20px;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Плавная анимация */
+}
+
+.slide {
+    min-width: 100%;   /* Один слайд занимает всё окно */
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Чтобы картинки не искажались */
+    height: 400px;     /* Высота из макета */
+}
+
+/* Кнопки */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }`
