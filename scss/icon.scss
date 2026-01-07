@@ -41,14 +41,14 @@
   mask-size: 100% 100%;
 }
 
-.line-md--chevron-left::after {
+.line-md--chevron-left {
   display: inline-block;
   width: 24px;
   height: 24px;
   vertical-align: -0.125em;
   content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-dasharray='12' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 12l7 -7M8 12l7 7'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='12;0'/%3E%3C/path%3E%3C/svg%3E");
 }
-.line-md--chevron-right::after {
+.line-md--chevron-right {
   display: inline-block;
   width: 24px;
   height: 24px;
