@@ -1,48 +1,58 @@
 .hero-section {
     position: relative;
-    height: 740px;
+    height: 740px; // Базовая высота
     overflow: hidden;
+    width: 100%;
     max-width: 1960px;
-        .slider-container {
-            position: absolute;
-            width: 100%;       
+    margin: 0 auto;
+
+
+
+    .slider-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        .slider-track {
+            display: flex;
             height: 100%;
-            overflow: hidden;  /* Прячем лишние слайды */
-            // top: 0; 
-            // left: 0;
-            z-index: 1; 
-            display: flex;
-            transition: transform 0.6s ease;
-            .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out; /* Плавная анимация */
-                .slide {
-                min-width: 100%;   /* Один слайд занимает всё окно */
-                    img {
-                        width: 100%;
-                        display: block;
-                        object-fit: cover; /* Чтобы картинки не искажались */
-                        height: 100%;     
-                    }
+            transition: transform 0.5s ease-in-out;
+
+            .slide {
+                min-width: 100%; // Слайд всегда равен ширине контейнера
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover; // Картинка не искажается
+                    display: block;
                 }
+            }
         }
-        
     }
+
     .hero_overlay {
         position: absolute;
-        width: 100%; 
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
         z-index: 2;
-        pointer-events: none; /* ВАЖНО: клики проходят "сквозь" пленку к кнопкам */
-        height: 740px;
-        // background: linear-gradient(90deg, #031a65 0%, rgba(3, 26, 101, 0) 100%);
+        pointer-events: none;
         background: linear-gradient(
-        to right, 
-        rgb(1, 20, 81) 20%,    /* Плотный цвет (начало) */
-        rgba(3, 26, 101, 0.8) 45%, /* Начинает светлеть над контентом */
-        rgba(3, 26, 101, 0) 100%   /* Полностью прозрачный над картинкой */
-    );
+            to right, 
+            rgb(1, 20, 81) 20%, 
+            rgba(3, 26, 101, 0.8) 45%, 
+            rgba(3, 26, 101, 0) 100%
+        );
+
+
     }
+
     .hero_content_fixed {
         position: relative;
         z-index: 3;
@@ -50,65 +60,206 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        h2 {
-            margin-top: 16px;
-            margin-bottom: 32px;
-        }
-        .want {
-            border-radius: 16px;
-            padding: 12px 20px;
-            background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
-            font-family: var(--second-family);
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 167%;
-            color: var(--white);
-            border:none;
-        }
-    }
-    .button_slesh {
-        display: flex;
-        justify-content: flex-start;
-        align-items:center;
-        gap: 16px;
-        margin-left: 0;
-        margin-top: 72px;
-            .slesh_link {
-                display: flex;
-                justify-content: space-between;
-                align-items:center;
-                gap: 8px;
-                .slesh_list {
-                    border-radius: 32px;
-                    width: 16px;
-                    height: 16px;
-                    background-color: var(--white);
-                    display: inline-block;
-                    border-radius: 50%;
+
+        .open_text {
+            h1 {
+                font-size: 64px;
+                @media (max-width: 1024px) { font-size: 48px; }
+                @media (max-width: 768px) { font-size: 32px; text-align: center; }
+            }
+
+            h2 {
+                font-size: 24px;
+                margin-top: 16px;
+                margin-bottom: 32px;
+                @media (max-width: 768px) { font-size: 18px; text-align: center; }
+            }
+
+            .want {
+                cursor: pointer;
+                border-radius: 16px;
+                padding: 12px 24px;
+                background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+                font-family: var(--second-family);
+                font-weight: 700;
+                font-size: 20px;
+                color: var(--white);
+                border: none;
+                width: fit-content;
+                transition: transform 0.2s;
+
+                @media (max-width: 768px) {
+                    margin: 0 auto; // Центрируем кнопку на мобилке
+                }
+
+                &:hover {
+                    transform: scale(1.05);
                 }
             }
-            button {
-            position: relative;
-            border-radius: 50%;
-            border: none;
-            padding: 8px;
+        }
+    }
+
+    .button_slesh {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 72px;
+
+
+        .slesh_link {
+            display: flex;
+            gap: 8px;
+
+            .slesh_list {
+                width: 12px;
+                height: 12px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                transition: 0.3s;
+
+                &.active {
+                    background-color: white;
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        button {
             width: 40px;
             height: 40px;
-            background: var(--white);
+            border-radius: 50%;
+            border: none;
+            background: white;
             display: flex;
             justify-content: center;
-            align-items:center;
+            align-items: center;
+            cursor: pointer;
             
-            .line-md--chevron-left .line-md--chevron-right {
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+            span {
+                color: #031a65;
+                font-size: 20px;
             }
-            
         }
     }
 }
+
+
+
+// .hero-section {
+//     position: relative;
+//     height: 740px;
+//     overflow: hidden;
+//     // width: 1960px;
+//     .slider-container {
+//       position: absolute;
+//       width: 100%;                   
+//       height: 100%;
+//       overflow: hidden;  /* Прячем лишние слайды */            z-index: 1; 
+//       display: flex;
+//       transition: transform 0.6s ease;
+//       .slider-track {
+//         display: flex;
+//         transition: transform 0.5s ease-in-out; /* Плавная анимация */
+//         .slide {
+//           width: 100vw; /* Слайд строго по ширине экрана */
+//           height: 100vh;    /* Слайд строго по высоте экрана */
+//           display: flex;
+//           justify-content: flex-end;
+//           margin-right: 0;
+//           img {
+//             width: 100%;
+//             display: block;
+//             object-fit: cover; /* Чтобы картинки не искажались */
+//             height: 100%;
+//             display: flex;
+//             justify-content: flex-end;
+//             margin-right: 0;
+//           }
+//       }
+//   }
+        
+//   }
+//     .hero_overlay {
+//         position: absolute;
+//         width: 100%; 
+//         height: 100%;
+//         z-index: 2;
+//         pointer-events: none; /* ВАЖНО: клики проходят "сквозь" пленку к кнопкам */
+//         height: 740px;
+//         // background: linear-gradient(90deg, #031a65 0%, rgba(3, 26, 101, 0) 100%);
+//         background: linear-gradient(
+//         to right, 
+//         rgb(1, 20, 81) 20%,    /* Плотный цвет (начало) */
+//         rgba(3, 26, 101, 0.8) 45%, /* Начинает светлеть над контентом */
+//         rgba(3, 26, 101, 0) 100%   /* Полностью прозрачный над картинкой */
+//     );
+//     }
+//     .hero_content_fixed {
+//         position: relative;
+//         z-index: 3;
+//         height: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         h2 {
+//             margin-top: 16px;
+//             margin-bottom: 32px;
+//         }
+//         .want {
+//             border-radius: 16px;
+//             padding: 12px 20px;
+//             background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+//             font-family: var(--second-family);
+//             font-weight: 700;
+//             font-size: 24px;
+//             line-height: 167%;
+//             color: var(--white);
+//             border:none;
+//         }
+//     }
+//     .button_slesh {
+//         display: flex;
+//         justify-content: flex-start;
+//         align-items:center;
+//         gap: 16px;
+//         margin-left: 0;
+//         margin-top: 72px;
+//             .slesh_link {
+//                 display: flex;
+//                 justify-content: space-between;
+//                 align-items:center;
+//                 gap: 8px;
+//                 .slesh_list {
+//                     border-radius: 32px;
+//                     width: 16px;
+//                     height: 16px;
+//                     background-color: var(--white);
+//                     display: inline-block;
+//                     border-radius: 50%;
+//                 }
+//             }
+//             button {
+//             position: relative;
+//             border-radius: 50%;
+//             border: none;
+//             padding: 8px;
+//             width: 40px;
+//             height: 40px;
+//             background: var(--white);
+//             display: flex;
+//             justify-content: center;
+//             align-items:center;
+            
+//             .line-md--chevron-left .line-md--chevron-right {
+//                     position: absolute;
+//                     display: flex;
+//                     justify-content: center;
+//                     align-items: center;
+//             }
+            
+//         }
+//     }
+// }
 
 .button_slesh button:hover {
     background: var(--light-grey);
@@ -119,4 +270,81 @@
 }
 .slesh_list:active {
     background: var(--blue);
+}
+
+
+
+
+
+
+
+@media(min-width:1920px ) {
+  .head-mobile {
+    display: none;
+  }
+  .burger_icon {
+    display: none;
+  }
+}
+@media (min-width:1440px) {
+  .head-mobile {
+    display: none;
+  }
+  .menu {
+    margin-inline: 32px 415px;
+  }
+}
+@media (max-width:1280px){
+  .head-mobile {
+    display: none;
+  }
+  .menu {
+    margin-inline: 32px 255px;
+  }
+}
+@media(max-width:960px) {
+  .menu {
+    display: none;
+  }
+  .logotype {
+    margin-right: 478px;
+  }
+}
+@media(min-width:960px){
+  .burger_icon {
+    display: none;
+  }
+}
+@media(max-width:760px) {
+  .menu {
+    display: none;
+  }
+  .logotype {
+    margin-right: 386px;
+  }
+  .mdi--user {
+    display: none;
+  }
+}
+@media(max-width:480px) {
+  .menu {
+    display: none;
+  }
+  .logo {
+    margin-right: 225px;
+  }
+  .mdi--user {
+    display: none;
+  }
+}
+@media(max-width:360px) {
+  .menu {
+    display: none;
+  }
+  .logotype {
+    margin-right: 127px;
+  }
+  .mdi--user {
+    display: none;
+  }
 }

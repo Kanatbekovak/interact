@@ -7,6 +7,8 @@
 
 body {
   background: var(--black);
+  width: 100%;
+  overflow-x: hidden; /* Чтобы не было горизонтальной полосы прокрутки */
 }
 
 nav,
@@ -102,7 +104,7 @@ h2 {
 }
 
 .container {
-  max-width: 1960px; /* Ширина сайта из Figma */
+  max-width: 1920px; /* Ширина сайта из Figma */
   margin: 0 auto; /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
   padding: 0 20px; /* Чтобы на мобилках текст не касался краев */
   width: 100%;
@@ -130,7 +132,6 @@ header .head {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  gap: 656px;
 }
 header .head .head_list {
   display: flex;
