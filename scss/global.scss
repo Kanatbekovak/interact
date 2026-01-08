@@ -1,13 +1,13 @@
 
 
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-// body {
-//     background: var(--black);
-// }
+body {
+    background: var(--black);
+}
 nav,
 footer,
 header {
@@ -46,14 +46,6 @@ button {
   --second-family: "Cormorant", sans-serif;
 }
 
-p a {
-    font-family: var(--second-family);
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 125%;
-    color: var(--white);
-    outline: none;
-}
 
 nav ul { 
     list-style:none; 
@@ -67,7 +59,7 @@ nav a {
     position: relative;
     font-family: var(--second-family);
     font-weight: 500;
-    font-size: 32px;
+    font-size: 25px;
     line-height: 125%;
     color: var(--white);
 }
@@ -89,10 +81,23 @@ nav a.active::after {
     height: 2px;
     background: var(--gold);
 }
-
+h1 {
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 90%;
+    color: var(--white);
+}
+h2 {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 125%;
+    color: var(--white);
+}
 
 .container {
-    max-width: 1200px; /* Ширина сайта из Figma */
+    max-width: 1960px; /* Ширина сайта из Figma */
     margin: 0 auto;    /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
     padding: 0 20px;   /* Чтобы на мобилках текст не касался краев */
     width: 100%;
@@ -124,7 +129,7 @@ header {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        // gap: 656px;
+        gap: 656px;
         .head_list{
             display: flex;
             justify-content: space-between;
@@ -152,6 +157,7 @@ header {
                 font-size: 24px;
                 line-height: 167%;
                 color: var(--white);
+                border:none;
             }
             .range {
                 display: flex;

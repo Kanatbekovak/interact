@@ -1,42 +1,122 @@
-
-
-
-.slider-container {
+.hero-section {
     position: relative;
-    width: 100%;       /* Или ширина из Figma, например 800px */
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow: hidden;  /* Прячем лишние слайды */
-    border-radius: 20px;
-    .slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Плавная анимация */
-        .slide {
-        min-width: 100%;   /* Один слайд занимает всё окно */
-            img {
-                width: 100%;
-                display: block;
-                object-fit: cover; /* Чтобы картинки не искажались */
-                height: 400px;     /* Высота из макета */
-            }
+    height: 740px;
+    overflow: hidden;
+    max-width: 1960px;
+        .slider-container {
+            position: absolute;
+            width: 100%;       
+            height: 100%;
+            overflow: hidden;  /* Прячем лишние слайды */
+            // top: 0; 
+            // left: 0;
+            z-index: 1; 
+            display: flex;
+            transition: transform 0.6s ease;
+            .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Плавная анимация */
+                .slide {
+                min-width: 100%;   /* Один слайд занимает всё окно */
+                    img {
+                        width: 100%;
+                        display: block;
+                        object-fit: cover; /* Чтобы картинки не искажались */
+                        height: 100%;     
+                    }
+                }
+        }
+        
+    }
+    .hero_overlay {
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+        z-index: 2;
+        pointer-events: none; /* ВАЖНО: клики проходят "сквозь" пленку к кнопкам */
+        height: 740px;
+        // background: linear-gradient(90deg, #031a65 0%, rgba(3, 26, 101, 0) 100%);
+        background: linear-gradient(
+        to right, 
+        rgb(1, 20, 81) 20%,    /* Плотный цвет (начало) */
+        rgba(3, 26, 101, 0.8) 45%, /* Начинает светлеть над контентом */
+        rgba(3, 26, 101, 0) 100%   /* Полностью прозрачный над картинкой */
+    );
+    }
+    .hero_content_fixed {
+        position: relative;
+        z-index: 3;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+            margin-top: 16px;
+            margin-bottom: 32px;
+        }
+        .want {
+            border-radius: 16px;
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 167%;
+            color: var(--white);
+            border:none;
         }
     }
-        .prev-btn .next-btn {
-        position: relative;
-        border-radius: 32px;
-        padding: 8px;
-        width: 40px;
-        height: 40px;
-        background: var(--white);
-            .line-md--chevron-left .line-md--chevron-right {
-                position: absolute;
+    .button_slesh {
+        display: flex;
+        justify-content: flex-start;
+        align-items:center;
+        gap: 16px;
+        margin-left: 0;
+        margin-top: 72px;
+            .slesh_link {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                justify-content: space-between;
+                align-items:center;
+                gap: 8px;
+                .slesh_list {
+                    border-radius: 32px;
+                    width: 16px;
+                    height: 16px;
+                    background-color: var(--white);
+                    display: inline-block;
+                    border-radius: 50%;
+                }
             }
+            button {
+            position: relative;
+            border-radius: 50%;
+            border: none;
+            padding: 8px;
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            
+            .line-md--chevron-left .line-md--chevron-right {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+            }
+            
+        }
     }
-
-    .prev-btn { left: 20px; }
-    .next-btn { right: 20px; }
 }
 
+.button_slesh button:hover {
+    background: var(--light-grey);
+}
+.slesh_list.active {
+    background-color: var(--royal-blue);
+    transform: scale(1.2);
+}
+.slesh_list:active {
+    background: var(--blue);
+}
