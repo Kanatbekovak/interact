@@ -104,7 +104,7 @@ h2 {
 }
 
 .container {
-  max-width: 1920px; /* Ширина сайта из Figma */
+  max-width: 1860px; /* Ширина сайта из Figma */
   margin: 0 auto; /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
   padding: 0 20px; /* Чтобы на мобилках текст не касался краев */
   width: 100%;
@@ -126,6 +126,11 @@ header {
   background: var(--black);
   padding: 24px 48px;
   width: 100%;
+}
+@media (max-width: 485px) {
+  header {
+    padding: 32px 16px;
+  }
 }
 header .head {
   display: flex;
@@ -151,6 +156,11 @@ header .head .head_link {
   align-items: center;
   gap: 48px;
 }
+@media (max-width: 485px) {
+  header .head .head_link {
+    gap: 83px;
+  }
+}
 header .head .head_link .my_help {
   border-radius: 16px;
   padding: 12px 20px;
@@ -161,6 +171,9 @@ header .head .head_link .my_help {
   line-height: 167%;
   color: var(--white);
   border: none;
+}
+header .head .head_link .my_help:hover {
+  transform: scale(1.05);
 }
 header .head .head_link .range {
   display: flex;
@@ -176,4 +189,78 @@ header .head .head_link .range .round {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+header .head-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .head-mobile .head_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+header .head-mobile .head_list img {
+  border-radius: 80px;
+  width: 40px;
+  height: 40px;
+}
+header .head-mobile .head_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 105px;
+}
+@media (max-width: 1440px) {
+  header .head-mobile .head_link {
+    gap: 30px;
+  }
+}
+header .head-mobile .head_link .my_help {
+  border-radius: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--white);
+  border: none;
+}
+header .head-mobile .head_link .my_help:hover {
+  transform: scale(1.05);
+}
+header .head-mobile .head_link .range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+header .head-mobile .head_link .range .round {
+  border-radius: 32px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  display: flex;
+}
+
+.head-mobile {
+  display: none !important;
+}
+
+@media (max-width: 1280px) {
+  header .head {
+    display: none !important;
+  }
+  header .head-mobile {
+    display: flex !important;
+  }
 }/*# sourceMappingURL=global.css.map */

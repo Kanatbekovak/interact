@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .hero-section {
   position: relative;
   height: 740px;
@@ -6,6 +7,11 @@
   max-width: 1960px;
   margin: 0 auto;
 }
+@media (max-width: 768px) {
+  .hero-section {
+    height: 470px;
+  }
+}
 .hero-section .slider-container {
   position: absolute;
   top: 0;
@@ -13,15 +19,18 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 .hero-section .slider-container .slider-track {
   display: flex;
+  gap: 0; /* Для главного полноэкранного слайдера отступы не нужны! */
   height: 100%;
-  transition: transform 0.5s ease-in-out;
 }
 .hero-section .slider-container .slider-track .slide {
-  min-width: 100%;
+  width: 100%; /* Занимает всю ширину родителя */
+  min-width: 100%; /* На всякий случай дублируем */
   height: 100%;
+  flex: 0 0 100%;
 }
 .hero-section .slider-container .slider-track .slide img {
   width: 100%;
@@ -47,30 +56,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 72px;
+}
+@media (max-width: 485px) {
+  .hero-section .hero_content_fixed {
+    gap: 190px;
+    height: 424px;
+    margin: 24px 16px;
+  }
 }
 .hero-section .hero_content_fixed .open_text h1 {
-  font-size: 64px;
-}
-@media (max-width: 1024px) {
-  .hero-section .hero_content_fixed .open_text h1 {
-    font-size: 48px;
-  }
+  font-size: 80px;
 }
 @media (max-width: 768px) {
   .hero-section .hero_content_fixed .open_text h1 {
-    font-size: 32px;
-    text-align: center;
+    font-size: 48px;
+    line-height: 117%;
   }
 }
 .hero-section .hero_content_fixed .open_text h2 {
-  font-size: 24px;
+  font-size: 32px;
   margin-top: 16px;
   margin-bottom: 32px;
 }
 @media (max-width: 768px) {
   .hero-section .hero_content_fixed .open_text h2 {
-    font-size: 18px;
-    text-align: center;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 24px;
   }
 }
 .hero-section .hero_content_fixed .open_text .want {
@@ -89,7 +102,8 @@
 }
 @media (max-width: 768px) {
   .hero-section .hero_content_fixed .open_text .want {
-    margin: 0 auto;
+    padding: 12px 20px;
+    font-size: 16px;
   }
 }
 .hero-section .hero_content_fixed .open_text .want:hover {
@@ -99,7 +113,12 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 72px;
+}
+@media (max-width: 485px) {
+  .hero-section .button_slesh {
+    margin: 0 auto;
+    gap: 75px;
+  }
 }
 .hero-section .button_slesh .slesh_link {
   display: flex;
@@ -108,12 +127,12 @@
 .hero-section .button_slesh .slesh_link .slesh_list {
   width: 12px;
   height: 12px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background: var(--white);
   border-radius: 50%;
   transition: 0.3s;
 }
 .hero-section .button_slesh .slesh_link .slesh_list.active {
-  background-color: white;
+  background: var(--blue);
   transform: scale(1.2);
 }
 .hero-section .button_slesh button {
@@ -127,9 +146,11 @@
   align-items: center;
   cursor: pointer;
 }
-.hero-section .button_slesh button span {
-  color: #031a65;
-  font-size: 20px;
+.hero-section .button_slesh button .line-md--chevron-left .line-md--chevron-right {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button_slesh button:hover {
@@ -143,75 +164,4 @@
 
 .slesh_list:active {
   background: var(--blue);
-}
-
-@media (min-width: 1920px) {
-  .head-mobile {
-    display: none;
-  }
-  .burger_icon {
-    display: none;
-  }
-}
-@media (min-width: 1440px) {
-  .head-mobile {
-    display: none;
-  }
-  .menu {
-    margin-inline: 32px 415px;
-  }
-}
-@media (max-width: 1280px) {
-  .head-mobile {
-    display: none;
-  }
-  .menu {
-    margin-inline: 32px 255px;
-  }
-}
-@media (max-width: 960px) {
-  .menu {
-    display: none;
-  }
-  .logotype {
-    margin-right: 478px;
-  }
-}
-@media (min-width: 960px) {
-  .burger_icon {
-    display: none;
-  }
-}
-@media (max-width: 760px) {
-  .menu {
-    display: none;
-  }
-  .logotype {
-    margin-right: 386px;
-  }
-  .mdi--user {
-    display: none;
-  }
-}
-@media (max-width: 480px) {
-  .menu {
-    display: none;
-  }
-  .logo {
-    margin-right: 225px;
-  }
-  .mdi--user {
-    display: none;
-  }
-}
-@media (max-width: 360px) {
-  .menu {
-    display: none;
-  }
-  .logotype {
-    margin-right: 127px;
-  }
-  .mdi--user {
-    display: none;
-  }
 }/*# sourceMappingURL=main_page.css.map */
