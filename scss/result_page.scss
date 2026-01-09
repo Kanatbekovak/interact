@@ -1,0 +1,109 @@
+.result-section {
+    position: absolute;
+    top: 770px;
+    left: 50%;
+    transform: translateX(-50%); // Сдвигаем назад на половину ширины
+    
+    // Адаптивная ширина
+    // width: 95%; 
+    // max-width: 1362px; 
+    // min-height: 552px; // Вместо фиксированной height, чтобы контент мог расти
+    
+    background: var(--blue);
+    border-radius: 16px;
+    padding: 64px ;
+    z-index: 5;
+    
+    .results {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+
+        .result_num {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items:center;
+            gap: 24px;
+        }
+
+        h2 {
+            font-family: var(--second-family);
+            font-size: 40px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .result_wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; // Центрируем карточки внутри
+            gap: 51px 56px; // 51px 220px
+            
+            .result_link {
+                // flex: 1 1 200px; // Позволяет карточкам гибко сжиматься
+                // max-width: 250px;
+                // text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 16px;
+                width: 325px;
+                height: 96px;
+                h3 {
+                    font-family: var(--second-family);
+                    font-size: 48px;
+                    color: var(--white);
+                    margin-bottom: 8px;
+                }
+
+                p {
+                    font-family: var(--font-family);
+                    font-size: 18px;
+                    color: var(--white);
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+.results_button {
+    padding: 16px 40px;
+    background: var(--white);
+    color: var(--blue);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .result-section {
+        position: relative; // Отменяем абсолют
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-top: 40px;
+        padding: 40px 20px;
+
+        .results {
+            .result_wrap {
+                gap: 30px;
+                .result_link {
+                    flex: 1 1 100%; // По одной карточке в ряд
+                    h3 { font-size: 36px; }
+                }
+            }
+        }
+    }
+}
