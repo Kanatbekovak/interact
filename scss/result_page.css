@@ -1,9 +1,6 @@
 @charset "UTF-8";
 .result-section {
-  position: absolute;
-  top: 770px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 95%;
   max-width: 1362px;
   height: auto;
@@ -11,6 +8,7 @@
   border-radius: 16px;
   padding: 64px;
   z-index: 5;
+  margin: -100px auto 0;
 }
 .result-section .results {
   display: flex;

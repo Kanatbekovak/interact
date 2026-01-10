@@ -68,6 +68,11 @@ nav a {
   line-height: 125%;
   color: var(--white);
 }
+@media (max-width: 1280px) {
+  nav a {
+    font-size: 20px;
+  }
+}
 
 nav a:hover {
   color: var(--blue);
@@ -278,7 +283,7 @@ header .head-mobile .head_link .range .round {
   display: none !important;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   header .head {
     display: none !important;
   }

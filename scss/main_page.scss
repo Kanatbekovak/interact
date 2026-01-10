@@ -63,7 +63,7 @@
         justify-content: center;
         gap: 72px;
         @media(max-width:485px) {gap: 190px; height: 424px;margin: 24px 16px;}
-
+        
         .open_text {
             h1 {
               font-size: 80px;
@@ -107,11 +107,19 @@
         align-items: center;
         gap: 16px;
 
-      @media(max-width: 485px) {
-        margin: 0 auto;
-         gap: 75px;
-        //  margin-top:24px 
-        }
+    //   @media(max-width: 485px) {
+    //     margin: 0 auto;
+    //      gap: 75px;
+    //     //  margin-top:24px 
+    //     }
+        align-self: flex-start; 
+
+    @media(max-width: 485px) {
+        display: flex;
+        width: fit-content; // Важно: ширина должна быть по контенту
+        margin: 0 auto;     // Теперь сработает
+        gap: 75px; 
+    }
         .slesh_link {
             display: flex;
             gap: 8px;
