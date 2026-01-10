@@ -209,8 +209,9 @@ header {
             gap: 15px;
             img {
                 border-radius: 80px;
-                width: 40px;
-                height: 40px;
+                width: 80px;
+                height: 80px;
+                @media(max-width:468px) {width: 40px;height: 40px;}
             }
         }
         .head_link {

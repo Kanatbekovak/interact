@@ -2,67 +2,68 @@
     position: absolute;
     top: 770px;
     left: 50%;
-    transform: translateX(-50%); // Сдвигаем назад на половину ширины
+    transform: translateX(-50%);
     
-    // Адаптивная ширина
-    // width: 95%; 
-    // max-width: 1362px; 
-    // min-height: 552px; // Вместо фиксированной height, чтобы контент мог расти
-    
+    width: 95%; 
+    max-width: 1362px;
+    height: auto; 
     background: var(--blue);
     border-radius: 16px;
-    padding: 64px ;
+    padding: 64px;
     z-index: 5;
-    
+
     .results {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start; 
         gap: 48px;
+        width: 100%;
 
         .result_num {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items:center;
+            align-items: flex-start;
             gap: 24px;
-        }
+            width: 100%;
 
-        h2 {
-            font-family: var(--second-family);
-            font-size: 40px;
-            color: var(--white);
-            text-align: center;
-        }
+            h2 {
+                font-family: var(--second-family);
+                font-size: 32px;
+                color: var(--white);
+                text-align: left;
+                @media(max-width: 485px) {font-size: 24px;}
+            }
 
-        .result_wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; // Центрируем карточки внутри
-            gap: 51px 56px; // 51px 220px
-            
-            .result_link {
-                // flex: 1 1 200px; // Позволяет карточкам гибко сжиматься
-                // max-width: 250px;
-                // text-align: center;
+            .result_wrap {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 16px;
-                width: 325px;
-                height: 96px;
-                h3 {
-                    font-family: var(--second-family);
-                    font-size: 48px;
-                    color: var(--white);
-                    margin-bottom: 8px;
-                }
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 51px 56px; 
+                width: 100%;
 
-                p {
-                    font-family: var(--font-family);
-                    font-size: 18px;
-                    color: var(--white);
-                    opacity: 0.9;
+                .result_link {
+                    display: flex;
+                    flex-direction: column;
+                    
+                    gap: 16px;
+                    
+                    
+                    flex: 0 1 calc(33.333% - 40px); 
+
+                    h3 {
+                        font-family: var(--second-family);
+                        font-size: 48px;
+                        color: var(--white);
+                        @media(max-width: 485px) {font-size: 32px;}
+                    }
+
+                    p {
+                        font-family: var(--font-family);
+                        font-size: 24px;
+                        color: var(--white);
+                        opacity: 0.9;
+                        @media(max-width: 485px) {font-size: 16px;}
+                    }
                 }
             }
         }
@@ -75,6 +76,7 @@
     color: var(--blue);
     border: none;
     border-radius: 12px;
+    font-family: var(--font-family);
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;
@@ -82,27 +84,78 @@
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 992px) {
     .result-section {
-        position: relative; // Отменяем абсолют
+        padding: 40px;
+        .results .result_num .result_wrap {
+            gap: 32px 20px;
+            .result_link {
+                flex: 0 1 calc(50% - 15px); 
+            }
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .result-section {
+        position: relative;
         top: 0;
         left: 0;
         transform: none;
-        width: 100%;
-        margin-top: 40px;
-        padding: 40px 20px;
+        
+        box-sizing: border-box;
+        width: calc(100% - 32px); 
+        margin: 40px auto; 
+        padding: 32px 16px; 
 
         .results {
-            .result_wrap {
-                gap: 30px;
-                .result_link {
-                    flex: 1 1 100%; // По одной карточке в ряд
-                    h3 { font-size: 36px; }
+            
+            align-items: flex-start; 
+            width: 100%;
+            gap: 32px;
+
+            .result_num {
+                width: 100%;
+                
+                .result_wrap {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 24px 10px; 
+                    width: 100%;
+
+                    .result_link {
+                        
+                        flex: 0 0 calc(50% - 5px) !important; 
+                        width: calc(50% - 5px) !important;
+                        min-width: 0 !important;
+
+                        h3 {
+                            font-size: 20px; /* Размер, чтобы влезло "2 600 089" */
+                            line-height: 1.1;
+                        }
+
+                        p {
+                            font-size: 13px;
+                        }
+                    }
                 }
+            }
+
+            .results_button {
+                align-self: center;  
+                width: 100%;        
+                max-width: 100%;      
+                
+                padding: 16px;
+                font-size: 18px;
+                text-align: center;   
+                display: block;
             }
         }
     }
