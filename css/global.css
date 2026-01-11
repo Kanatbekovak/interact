@@ -2,11 +2,13 @@
 * {
   margin: 0;
   padding: 0;
-  border: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--black);
+  width: 100%;
+  overflow-x: hidden; /* Чтобы не было горизонтальной полосы прокрутки */
 }
 
 nav,
@@ -50,8 +52,242 @@ button {
   --second-family: "Cormorant", sans-serif;
 }
 
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  transition: 0.3s;
+  position: relative;
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 125%;
+  color: var(--white);
+}
+@media (max-width: 1280px) {
+  nav a {
+    font-size: 20px;
+  }
+}
+
+nav a:hover {
+  color: var(--blue);
+}
+
+nav a.active {
+  color: var(--gold);
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+}
+
+h1 {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 90%;
+  color: var(--white);
+}
+
+h2 {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 125%;
+  color: var(--white);
+}
+
+h3 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 117%;
+  color: var(--white);
+}
+
+p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  color: var(--white);
+}
+
 .container {
-  max-width: 1200px; /* Ширина сайта из Figma */
+  max-width: 1860px; /* Ширина сайта из Figma */
   margin: 0 auto; /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
   padding: 0 20px; /* Чтобы на мобилках текст не касался краев */
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  height: 740px;
+  background: linear-gradient(90deg, #031a65 0%, rgba(3, 26, 101, 0) 100%);
+}
+
+.menu_list a, .logo, .my_help {
+  flex-shrink: 0; /* Текст больше никогда не сожмется и не перенесется */
+  white-space: nowrap; /* Дополнительная страховка: текст всегда в одну строку */
+}
+
+header {
+  transition: 0.3s;
+  background: var(--black);
+  padding: 24px 48px;
+  width: 100%;
+}
+@media (max-width: 485px) {
+  header {
+    padding: 32px 16px;
+  }
+}
+header .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .head .head_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 72px;
+}
+header .head .head_list .menu_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+header .head .head_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+@media (max-width: 485px) {
+  header .head .head_link {
+    gap: 83px;
+  }
+}
+header .head .head_link .my_help {
+  border-radius: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 167%;
+  color: var(--white);
+  border: none;
+}
+header .head .head_link .my_help:hover {
+  transform: scale(1.05);
+}
+header .head .head_link .range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+header .head .head_link .range .round {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .head-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+header .head-mobile .head_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+header .head-mobile .head_list img {
+  border-radius: 80px;
+  width: 80px;
+  height: 80px;
+}
+@media (max-width: 468px) {
+  header .head-mobile .head_list img {
+    width: 40px;
+    height: 40px;
+  }
+}
+header .head-mobile .head_link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 105px;
+}
+@media (max-width: 1440px) {
+  header .head-mobile .head_link {
+    gap: 30px;
+  }
+}
+header .head-mobile .head_link .my_help {
+  border-radius: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--white);
+  border: none;
+}
+header .head-mobile .head_link .my_help:hover {
+  transform: scale(1.05);
+}
+header .head-mobile .head_link .range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+header .head-mobile .head_link .range .round {
+  border-radius: 32px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  display: flex;
+}
+
+.head-mobile {
+  display: none !important;
+}
+
+@media (max-width: 1200px) {
+  header .head {
+    display: none !important;
+  }
+  header .head-mobile {
+    display: flex !important;
+  }
 }/*# sourceMappingURL=global.css.map */
