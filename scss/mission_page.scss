@@ -1,0 +1,92 @@
+.mission-section {
+    padding: 100px 0;
+
+    display: flex;
+    justify-content: center;
+
+    .mission {
+        /* Твои точные значения */
+        width: 1362px;
+        min-height: 488px; 
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 64px;
+        
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 40px;
+        box-sizing: border-box;
+
+        @media (max-width: 1400px) {
+            width: 95%; // Чтобы не вылезало на экранах чуть меньше 1362px
+            height: auto;
+        }
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            padding: 40px;
+        }
+    }
+
+    .mission_name {
+        flex: 0 0 25%; // Название занимает левую четверть
+
+        h1 {
+            font-family: var(--second-family);
+            font-size: 48px; // Размер заголовка внутри белого блока
+            font-weight: 700;
+            color: #000;
+            line-height: 1.2;
+            margin: 0;
+        }
+    }
+
+    .mission_wrapper {
+        flex: 0 0 70%; // Список занимает оставшуюся часть
+
+        .mission_list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // СТРОГО ТРИ КОЛОНКИ
+            gap: 40px 30px; // Отступы между значениями
+        }
+
+        .mission_info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            h5 {
+                font-size: 20px;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+            p {
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.7); // Темный текст на белом фоне
+                line-height: 1.5;
+                margin: 0;
+            }
+        }
+    }
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .mission .mission_container {
+        padding: 32px 20px;
+        
+        .mission_list {
+            grid-template-columns: 1fr; // В одну колонку на мобилке
+            gap: 32px;
+        }
+        
+        .mission_name h1 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+    }
+}

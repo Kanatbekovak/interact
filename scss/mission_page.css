@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.mission-section {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+}
+.mission-section .mission {
+  /* Твои точные значения */
+  width: 1362px;
+  min-height: 488px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 64px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
+}
+@media (max-width: 1400px) {
+  .mission-section .mission {
+    width: 95%;
+    height: auto;
+  }
+}
+@media (max-width: 1024px) {
+  .mission-section .mission {
+    flex-direction: column;
+    padding: 40px;
+  }
+}
+.mission-section .mission_name {
+  flex: 0 0 25%;
+}
+.mission-section .mission_name h1 {
+  font-family: var(--second-family);
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.2;
+  margin: 0;
+}
+.mission-section .mission_wrapper {
+  flex: 0 0 70%;
+}
+.mission-section .mission_wrapper .mission_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
+}
+.mission-section .mission_wrapper .mission_info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mission-section .mission_wrapper .mission_info h5 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  margin: 0;
+}
+.mission-section .mission_wrapper .mission_info p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+  .mission .mission_container {
+    padding: 32px 20px;
+  }
+  .mission .mission_container .mission_list {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .mission .mission_container .mission_name h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+}/*# sourceMappingURL=mission_page.css.map */
