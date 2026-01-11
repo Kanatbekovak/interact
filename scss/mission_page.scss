@@ -1,11 +1,10 @@
 .mission-section {
-    padding: 100px 0;
-
+    padding: 60px 0; // Уменьшил внешний отступ для мобилок
     display: flex;
     justify-content: center;
 
+
     .mission {
-        /* Твои точные значения */
         width: 1362px;
         min-height: 488px; 
         background: #FFFFFF;
@@ -13,13 +12,14 @@
         padding: 64px;
         
         display: flex;
+        flex-direction: row; 
         justify-content: space-between;
         flex-direction: column;
         gap: 40px;
         box-sizing: border-box;
 
         @media (max-width: 1400px) {
-            width: 95%; // Чтобы не вылезало на экранах чуть меньше 1362px
+            width: 95%;
             height: auto;
         }
 
@@ -27,34 +27,55 @@
             flex-direction: column;
             padding: 40px;
         }
+
+        @media (max-width: 768px) {
+            padding: 32px 16px; // Уменьшаем боковые поля, чтобы дать место колонкам
+            gap: 24px;
+        }
     }
 
     .mission_name {
-        flex: 0 0 25%; // Название занимает левую четверть
+        flex: 0 0 auto;
 
         h1 {
             font-family: var(--second-family);
-            font-size: 48px; // Размер заголовка внутри белого блока
+            font-size: 48px;
             font-weight: 700;
             color: #000;
             line-height: 1.2;
             margin: 0;
+
+            @media (max-width: 768px) {
+                font-size: 28px;
+            }
         }
     }
 
     .mission_wrapper {
-        flex: 0 0 70%; // Список занимает оставшуюся часть
+        flex: 1 1 auto;
 
         .mission_list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); // СТРОГО ТРИ КОЛОНКИ
-            gap: 40px 30px; // Отступы между значениями
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px 30px;
+
+            /* Адаптив для планшетов и мобилок (включая 375px) */
+            @media (max-width: 1024px) {
+                grid-template-columns: repeat(2, 1fr); // Две колонки
+                gap: 30px 20px;
+            }
+
+            @media (max-width: 375px) {
+                /* Принудительно 2 колонки на 375px */
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 20px 10px; // Минимальный зазор, чтобы текст влез
+            }
         }
 
         .mission_info {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
 
             h5 {
                 font-size: 20px;
@@ -62,31 +83,22 @@
                 color: #000;
                 text-transform: uppercase;
                 margin: 0;
+
+                @media (max-width: 768px) {
+                    font-size: 15px; // Уменьшаем шрифт заголовка
+                }
             }
 
             p {
                 font-size: 16px;
-                color: rgba(0, 0, 0, 0.7); // Темный текст на белом фоне
-                line-height: 1.5;
+                color: rgba(0, 0, 0, 0.7);
+                line-height: 1.4;
                 margin: 0;
-            }
-        }
-    }
-}
 
-/* Адаптив для мобильных устройств */
-@media (max-width: 768px) {
-    .mission .mission_container {
-        padding: 32px 20px;
-        
-        .mission_list {
-            grid-template-columns: 1fr; // В одну колонку на мобилке
-            gap: 32px;
-        }
-        
-        .mission_name h1 {
-            font-size: 32px;
-            margin-bottom: 24px;
+                @media (max-width: 768px) {
+                    font-size: 12px; // Уменьшаем шрифт текста, чтобы он помещался в узкую колонку
+                }
+            }
         }
     }
 }
