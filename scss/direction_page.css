@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .direction-section {
   padding: 100px 0;
 }
@@ -8,7 +9,7 @@
   gap: 80px;
   padding: 0 20px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
   .direction-section .directions {
     flex-direction: column;
     gap: 48px;
@@ -19,7 +20,7 @@
   position: sticky;
   top: 40px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1300px) {
   .direction-section .directions .directions_name {
     position: static;
     width: 100%;
@@ -30,7 +31,7 @@
   font-size: 72px;
   font-weight: 700;
   color: #fff;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 24px;
 }
 @media (max-width: 485px) {
@@ -55,32 +56,22 @@
   display: flex;
   align-items: stretch;
   padding: 40px;
-  border: 1px solid rgb(255, 255, 255);
-  transition: background 0.3s;
+  gap: 40px;
+  border: 1px solid #fff;
+  margin-top: -1px;
+  transition: background 0.3s ease;
+  /* АДАПТИВ ПОД МОБИЛКУ (780px и ниже) */
 }
 @media (max-width: 768px) {
   .direction-section .directions .directions_info {
     padding: 24px 16px;
   }
 }
+.direction-section .directions .directions_info:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
 .direction-section .directions .directions_info:nth-child(even) {
   flex-direction: row-reverse;
-}
-.direction-section .directions .directions_info:nth-child(even) .direction_text {
-  padding-right: 40px;
-  padding-left: 0;
-}
-.direction-section .directions .directions_info:nth-child(even) .img_direc {
-  padding-left: 40px;
-  padding-right: 0;
-}
-.direction-section .directions .directions_info:hover {
-  background: rgba(255, 255, 255, 0.03);
-}
-.direction-section .directions .directions_info .img_direc {
-  flex: 0 0 50%;
-  padding-right: 40px;
-  box-sizing: border-box;
 }
 .direction-section .directions .directions_info .img_direc img {
   width: 100%;
@@ -100,6 +91,7 @@
   font-size: 32px;
   font-weight: 700;
   color: #fff;
+  margin-bottom: 16px;
 }
 @media (max-width: 485px) {
   .direction-section .directions .directions_info .direction_text h4 {
@@ -112,7 +104,7 @@
   line-height: 1.4;
 }
 .direction-section .directions .directions_info .direction_text .more_link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   color: #fff;
@@ -120,6 +112,7 @@
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
+  margin-top: 24px;
   margin-top: auto;
 }
 .direction-section .directions .directions_info .direction_text .more_link span {
@@ -128,28 +121,25 @@
 .direction-section .directions .directions_info .direction_text .more_link:hover span {
   transform: translateX(5px);
 }
-@media (max-width: 650px) {
+@media (max-width: 780px) {
   .direction-section .directions .directions_info {
     flex-direction: column !important;
-    padding: 32px 0;
-  }
-  .direction-section .directions .directions_info .img_direc, .direction-section .directions .directions_info .direction_text {
-    flex: 0 0 100%;
-    padding: 0 !important;
+    padding: 24px 16px !important;
+    gap: 24px;
   }
   .direction-section .directions .directions_info .img_direc {
-    margin-bottom: 24px;
-    height: 250px;
+    width: 100% !important;
   }
   .direction-section .directions .directions_info .img_direc img {
     min-height: auto;
   }
+  .direction-section .directions .directions_info .direction_text {
+    width: 100% !important;
+  }
   .direction-section .directions .directions_info .direction_text h4 {
     font-size: 24px;
-    margin-bottom: 8px;
   }
   .direction-section .directions .directions_info .direction_text p {
     font-size: 14px;
-    margin-bottom: 16px;
   }
 }/*# sourceMappingURL=direction_page.css.map */
