@@ -1,0 +1,202 @@
+.projects-section {
+    padding: 100px 0;
+    overflow: hidden;
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 72px;
+
+        .projects_name {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+            h1 {
+                font-family: var(--second-family);
+                font-weight: 700;
+                font-size: 80px;
+                line-height: 90%;
+                color: var(--white);
+                @media (max-width: 480px) {font-size: 32px;line-height: 125%; }
+            }
+
+            .button_projects {
+                display: flex;
+                gap: 16px;
+
+                button {
+                    border-radius: 32px;
+                    padding: 12px;
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    border: 1px solid #e0e0e0;
+                    background: var(--white);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover {
+                        background: var(--blue);
+                        border-color: var(--blue);
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .projects_wrapper {
+            width: 100%;
+            cursor: grab;
+            
+            .projects_slider {
+                display: flex;
+                gap: 24px;
+                transition: transform 0.5s ease-out;
+                /* Для работы без JS можно добавить: overflow-x: auto; */
+            }
+        }
+
+        .projects_scroll {
+            background: var(--darkest-grey);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+            border-radius: 16px;
+            padding: 24px 24px 32px;
+            gap: 32px;
+            // width: 669px;
+            // height: 672px;
+
+            &:hover {
+                transform: translateY(-10px);
+            }
+
+            @media (max-width: 1024px) { flex: 0 0 calc(50% - 15px); }
+            @media (max-width: 610px) { flex: 0 0 100%; }
+            @media (max-width: 610px) { width: 343px;height: 540px; }
+            .project_list {
+                // display: flex;
+                // justify-content: space-between;
+                // align-items:center;
+                // flex-direction: row;
+                // gap: 24px;
+                .location {
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: var(--white);
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-top: 24px;
+                    margin-bottom: 24px;
+                }
+
+                .img_box {
+                    // width: 100%;
+                    border-radius: 16px;
+                    width: 621px;
+                    height: 300px;
+                    overflow: hidden;
+                    margin-bottom: 24px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .time {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 24px;
+                    gap: 296px;
+                    
+
+                    span { 
+                        border-radius: 16px;
+                        padding: 8px 12px;
+                        width: 190px;
+                        height: 32px;
+                        background: var(--light-blue);
+                        text-align: center;
+                        font-family: var(--font-family);
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: var(--white);
+                    }
+                    p { 
+                        font-family: var(--font-family);
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: var(--white);
+                    }
+                }
+
+                .project_text {
+                    h4 {
+                        margin-bottom: 8px;
+                        font-family: var(--font-family);
+                        font-weight: 700;
+                        font-size: 24px;
+                        line-height: 133%;
+                        color: var(--white);
+                    }
+                    p {
+                        overflow: hidden;
+                        font-family: var(--font-family);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 125%;
+                        color: var(--white);
+                    }
+                }
+            }
+
+            .more_link {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-family: var(--font-family);
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 150%;
+                text-transform: uppercase;
+                color: var(--white);
+                text-decoration: none;
+
+                span { transition: transform 0.3s; }
+                &:hover span { transform: translateX(5px); }
+            }
+        }
+
+        .all_projects_btn {
+            
+            padding: 16px 40px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            font-family: var(--second-family);
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 125%;
+            color: var(--white);
+
+            &:hover {
+                transform: translateX(5px);
+            }
+        }
+    }
+}

@@ -156,6 +156,11 @@
   justify-content: center;
   align-items: center;
 }
+.hero-section .button_slesh button:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
 
 .button_slesh button:hover {
   background: var(--light-grey);
