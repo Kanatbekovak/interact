@@ -1,0 +1,155 @@
+.direction-section {
+    padding: 100px 0;
+
+    .directions {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 80px;
+        padding: 0 20px;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .directions_name {
+            flex: 0 0 35%;
+            position: sticky;
+            top: 40px;
+
+            @media (max-width: 1024px) {
+                position: static;
+                width: 100%;
+            }
+
+            h1 {
+                font-family: var(--second-family);
+                font-size: 72px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1;
+                margin-bottom: 24px;
+                @media (max-width: 485px) { font-size: 32px; }
+            }
+
+            p {
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.6);
+                line-height: 1.5;
+            }
+        }
+
+        .directions_wrapper {
+            flex: 0 0 60%;
+            width: 100%;
+
+            .directions_list {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .directions_info {
+            display: flex;
+            align-items: stretch; // Растягивает фото и текст до одинаковой высоты
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 1); // Линия между карточками
+            transition: background 0.3s;
+
+            @media(max-width:768px) {padding: 24px 16px;}
+
+            // Шахматный порядок
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+                .direction_text { padding-right: 40px; padding-left: 0; }
+                .img_direc { padding-left: 40px; padding-right: 0; }
+            }
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.03); // Легкий блик при наведении
+            }
+
+            .img_direc {
+                flex: 0 0 50%;
+                padding-right: 40px; // Отступ между фото и текстом
+                box-sizing: border-box;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    min-height: 200px;
+                    object-fit: cover;
+                }
+            }
+
+            .direction_text {
+                flex: 0 0 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 16px;
+
+                h4 {
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #fff;
+                    @media (max-width: 485px) { font-size: 24px; }
+                }
+
+                p {
+                    font-size: 16px;
+                    color: rgba(255, 255, 255, 0.7);
+                    line-height: 1.4;
+                }
+
+                .more_link {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    color: #fff;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-top: auto; // Прижимает к низу, если контента мало
+
+                    span { transition: 0.3s; }
+                    &:hover span { transform: translateX(5px); }
+                }
+            }
+
+            // Адаптив для мобилок (линии остаются)
+            @media (max-width: 650px) {
+                flex-direction: column !important;
+                padding: 32px 0;
+
+                .img_direc, .direction_text {
+                    flex: 0 0 100%;
+                    padding: 0 !important;
+                }
+
+                .img_direc {
+                    margin-bottom: 24px;
+                    height: 250px;
+
+                    img {
+                        min-height: auto;
+                    }
+                }
+
+                .direction_text {
+                    h4 {
+                        font-size: 24px;
+                        margin-bottom: 8px;
+                    }
+                    
+                    p {
+                        font-size: 14px;
+                        margin-bottom: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
