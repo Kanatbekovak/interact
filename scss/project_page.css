@@ -2,145 +2,154 @@
 .projects-section {
   padding: 100px 0;
   overflow: hidden;
+  background: var(--black);
 }
 .projects-section .projects {
   display: flex;
   flex-direction: column;
   gap: 72px;
 }
+@media (max-width: 485px) {
+  .projects-section .projects {
+    gap: 16px;
+  }
+}
 .projects-section .projects .projects_name {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 .projects-section .projects .projects_name h1 {
   font-family: var(--second-family);
-  font-weight: 700;
   font-size: 80px;
-  line-height: 90%;
+  font-weight: 700;
   color: var(--white);
+  line-height: 0.9;
 }
-@media (max-width: 480px) {
+@media (max-width: 485px) {
   .projects-section .projects .projects_name h1 {
     font-size: 32px;
     line-height: 125%;
   }
 }
-.projects-section .projects .projects_name .button_projects {
+.projects-section .projects .projects_name .desktop-buttons {
+  display: flex; /* Показываем на десктопе */
+  /* Прячем на мобилке */
+}
+@media (max-width: 485px) {
+  .projects-section .projects .projects_name .desktop-buttons {
+    display: none;
+  }
+}
+.projects-section .projects .button_projects {
   display: flex;
   gap: 16px;
 }
-.projects-section .projects .projects_name .button_projects button {
-  border-radius: 32px;
-  padding: 12px;
+.projects-section .projects .button_projects button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   border: 1px solid #e0e0e0;
   background: var(--white);
   cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
 }
-.projects-section .projects .projects_name .button_projects button:hover {
+.projects-section .projects .button_projects button:hover {
   background: var(--blue);
   border-color: var(--blue);
   color: white;
 }
 .projects-section .projects .projects_wrapper {
   width: 100%;
-  cursor: grab;
 }
 .projects-section .projects .projects_wrapper .projects_slider {
   display: flex;
   gap: 24px;
-  transition: transform 0.5s ease-out;
-  /* Для работы без JS можно добавить: overflow-x: auto; */
 }
 .projects-section .projects .projects_scroll {
+  flex: 0 0 669px;
   background: var(--darkest-grey);
+  border-radius: 16px;
+  padding: 24px 24px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s;
-  border-radius: 16px;
-  padding: 24px 24px 32px;
+  box-sizing: border-box;
   gap: 32px;
 }
-.projects-section .projects .projects_scroll:hover {
-  transform: translateY(-10px);
-}
-@media (max-width: 1024px) {
+@media (max-width: 485px) {
   .projects-section .projects .projects_scroll {
-    flex: 0 0 calc(50% - 15px);
+    flex: 0 0 343px;
+    height: 100%;
+    padding: 16px 16px 24px;
   }
 }
-@media (max-width: 610px) {
-  .projects-section .projects .projects_scroll {
-    flex: 0 0 100%;
-  }
-}
-@media (max-width: 610px) {
-  .projects-section .projects .projects_scroll {
-    width: 343px;
-    height: 540px;
-  }
-}
-.projects-section .projects .projects_scroll .project_list .location {
-  font-family: var(--font-family);
-  font-weight: 400;
+.projects-section .projects .projects_scroll .location {
   font-size: 16px;
-  line-height: 100%;
-  color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 24px;
+  color: var(--white);
   margin-bottom: 24px;
 }
-.projects-section .projects .projects_scroll .project_list .img_box {
-  border-radius: 16px;
-  width: 621px;
+@media (max-width: 480px) {
+  .projects-section .projects .projects_scroll .location {
+    font-size: 12px;
+  }
+}
+.projects-section .projects .projects_scroll .img_box {
+  width: 100%;
   height: 300px;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 24px;
 }
-.projects-section .projects .projects_scroll .project_list .img_box img {
+@media (max-width: 485px) {
+  .projects-section .projects .projects_scroll .img_box {
+    height: 180px;
+  }
+}
+.projects-section .projects .projects_scroll .img_box img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.projects-section .projects .projects_scroll .project_list .time {
+.projects-section .projects .projects_scroll .time {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-  gap: 296px;
 }
-.projects-section .projects .projects_scroll .project_list .time span {
-  border-radius: 16px;
-  padding: 8px 12px;
-  width: 190px;
-  height: 32px;
+.projects-section .projects .projects_scroll .time span {
   background: var(--light-blue);
-  text-align: center;
+  padding: 8px 12px;
+  border-radius: 16px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   color: var(--white);
 }
-.projects-section .projects .projects_scroll .project_list .time p {
+@media (max-width: 480px) {
+  .projects-section .projects .projects_scroll .time span {
+    font-size: 12px;
+  }
+}
+.projects-section .projects .projects_scroll .time p {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
   color: var(--white);
 }
-.projects-section .projects .projects_scroll .project_list .project_text h4 {
+@media (max-width: 480px) {
+  .projects-section .projects .projects_scroll .time p {
+    font-size: 12px;
+  }
+}
+.projects-section .projects .projects_scroll .project_text h4 {
   margin-bottom: 8px;
   font-family: var(--font-family);
   font-weight: 700;
@@ -148,13 +157,22 @@
   line-height: 133%;
   color: var(--white);
 }
-.projects-section .projects .projects_scroll .project_list .project_text p {
-  overflow: hidden;
+@media (max-width: 480px) {
+  .projects-section .projects .projects_scroll .project_text h4 {
+    font-size: 16px;
+  }
+}
+.projects-section .projects .projects_scroll .project_text p {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
   color: var(--white);
+}
+@media (max-width: 480px) {
+  .projects-section .projects .projects_scroll .project_text p {
+    font-size: 12px;
+  }
 }
 .projects-section .projects .projects_scroll .more_link {
   display: flex;
@@ -174,8 +192,13 @@
 .projects-section .projects .projects_scroll .more_link:hover span {
   transform: translateX(5px);
 }
-.projects-section .projects .all_projects_btn {
-  padding: 16px 40px;
+.projects-section .projects .projects_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.projects-section .projects .projects_footer .all_projects_btn {
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -187,6 +210,20 @@
   line-height: 125%;
   color: var(--white);
 }
-.projects-section .projects .all_projects_btn:hover {
+.projects-section .projects .projects_footer .all_projects_btn:hover {
   transform: translateX(5px);
+}
+@media (max-width: 485px) {
+  .projects-section .projects .projects_footer .all_projects_btn {
+    font-size: 20px;
+  }
+}
+.projects-section .projects .projects_footer .mobile-buttons {
+  display: none; /* Прячем на десктопе */
+  /* Показываем на мобилке */
+}
+@media (max-width: 485px) {
+  .projects-section .projects .projects_footer .mobile-buttons {
+    display: flex;
+  }
 }/*# sourceMappingURL=project_page.css.map */
