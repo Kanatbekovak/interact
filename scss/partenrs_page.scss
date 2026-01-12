@@ -7,7 +7,18 @@
         // padding: 0 20px;
 
         @media (max-width: 768px) {gap: 16px;} 
-        }
+        .patners_name {
+            h1 {
+                font-family: var(--second-family);
+                font-size: 72px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1.1;
+
+                @media (max-width: 768px) {
+                    font-size: 40px;
+                }
+            }
         }
 
         .partners_list {
@@ -22,12 +33,9 @@
             }
 
             @media (max-width: 768px) {
-
                 grid-template-columns: repeat(4, 1fr);
-                /* Отступ 16px */
                 gap: 16px; 
             }
-
 
             @media (max-width: 375px) {
                 grid-template-columns: repeat(2, 1fr); 
@@ -52,4 +60,5 @@
                 }
             }
         }
-    
+    }
+}
