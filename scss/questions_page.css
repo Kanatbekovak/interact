@@ -1,0 +1,87 @@
+.questions-section {
+  padding: 260px 0 140px;
+}
+.questions-section .questions {
+  max-width: 1382px;
+}
+.questions-section .questions .questions_name h1 {
+  font-size: 80px;
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .questions-section .questions .questions_name h1 {
+    font-size: 32px;
+  }
+}
+.questions-section .questions .question_list {
+  border-bottom: 1px solid #fff;
+  padding: 16px 0;
+  cursor: pointer;
+}
+.questions-section .questions .question_list .question_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.questions-section .questions .question_list .question_info p {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  .questions-section .questions .question_list .question_info p {
+    font-size: 18px;
+  }
+}
+.questions-section .questions .question_list .question_info .icon_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.questions-section .questions .question_list .question_info .icon_box span {
+  font-size: 24px;
+  color: #fff;
+  transition: transform 0.4s ease, opacity 0.3s;
+}
+.questions-section .questions .question_list .question_info .icon_box .line-md--minus {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.questions-section .questions .question_list .answer_info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+.questions-section .questions .question_list .answer_info p {
+  padding: 16px 0 0 0;
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  .questions-section .questions .question_list .answer_info p {
+    font-size: 15px;
+  }
+}
+.questions-section .questions .question_list.active .answer_info {
+  max-height: 500px;
+  transition: max-height 0.8s ease-in-out;
+}
+.questions-section .questions .question_list.active .icon_box .tabler--plus {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+.questions-section .questions .question_list.active .icon_box .line-md--minus {
+  opacity: 1;
+  transform: rotate(0deg);
+}/*# sourceMappingURL=questions_page.css.map */

@@ -1,0 +1,98 @@
+.questions-section {
+    padding: 260px 0 140px; 
+
+
+    .questions {
+        max-width: 1382px;
+
+        .questions_name h1 {
+            font-size: 80px;
+            margin-bottom: 60px;
+            @media (max-width: 768px) { font-size: 32px; }
+        }
+
+
+        .question_list {
+            border-bottom: 1px solid #fff;
+            padding: 16px 0;
+            cursor: pointer;
+
+            .question_info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+
+                p {
+                    font-family: var(--font-family);
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 133%;
+                    color: var(--white);
+                    @media (max-width: 768px) { font-size: 18px; }
+                }
+
+                .icon_box {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                    flex-shrink: 0;
+
+                    span {
+                        font-size: 24px;
+                        color: #fff;
+                        transition: transform 0.4s ease, opacity 0.3s;
+                    }
+
+                    .line-md--minus {
+                        position: absolute;
+                        opacity: 0;
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+            .answer_info {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+                
+                p {
+                    padding: 16px 0 0 0; 
+                    margin: 0;
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 150%;
+                    color: var(--white);
+
+                    @media (max-width: 768px) {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+
+          
+            &.active {
+                .answer_info {
+                    max-height: 500px;
+                    transition: max-height 0.8s ease-in-out;
+                }
+
+                .icon_box {
+                    .tabler--plus {
+                        opacity: 0;
+                        transform: rotate(-90deg);
+                    }
+                    .line-md--minus {
+                        opacity: 1;
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+        }
+    }
+}
