@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.partners-section .partners {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+@media (max-width: 768px) {
+  .partners-section .partners {
+    gap: 16px;
+  }
+}
+
+.partners_list {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 1200px) {
+  .partners_list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .partners_list {
+    grid-template-columns: repeat(4, 1fr);
+    /* Отступ 16px */
+    gap: 16px;
+  }
+}
+@media (max-width: 375px) {
+  .partners_list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.partner_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.partner_info img {
+  width: 100%;
+  height: auto;
+  max-width: 160px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.partner_info img:hover {
+  opacity: 1;
+}/*# sourceMappingURL=partenrs_page.css.map */

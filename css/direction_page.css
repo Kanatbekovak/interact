@@ -1,22 +1,19 @@
 @charset "UTF-8";
-.direction-section {
-  padding: 100px 0;
-}
 .direction-section .directions {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 80px;
+  gap: 24px;
   padding: 0 20px;
 }
 @media (max-width: 1300px) {
   .direction-section .directions {
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
   }
 }
 .direction-section .directions .directions_name {
-  flex: 0 0 35%;
+  flex: 0 0 38%;
   position: sticky;
   top: 40px;
 }
@@ -28,21 +25,28 @@
 }
 .direction-section .directions .directions_name h1 {
   font-family: var(--second-family);
-  font-size: 72px;
   font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
+  font-size: 80px;
+  line-height: 90%;
+  color: var(--white);
   margin-bottom: 24px;
 }
 @media (max-width: 485px) {
   .direction-section .directions .directions_name h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 .direction-section .directions .directions_name p {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.5;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--white);
+}
+@media (max-width: 485px) {
+  .direction-section .directions .directions_name p {
+    font-size: 16px;
+  }
 }
 .direction-section .directions .directions_wrapper {
   flex: 0 0 60%;
@@ -55,8 +59,8 @@
 .direction-section .directions .directions_info {
   display: flex;
   align-items: stretch;
-  padding: 40px;
-  gap: 40px;
+  padding: 24px;
+  gap: 24px;
   border: 1px solid #fff;
   margin-top: -1px;
   transition: background 0.3s ease;
@@ -81,11 +85,11 @@
      object-fit: cover;
 }
 .direction-section .directions .directions_info .direction_text {
-  flex: 0 0 50%;
+  flex: 0 0 56%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
 }
 .direction-section .directions .directions_info .direction_text h4 {
   font-size: 32px;
@@ -107,11 +111,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #fff;
   text-decoration: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--white);
   margin-top: 24px;
   margin-top: auto;
 }

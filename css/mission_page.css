@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .mission-section {
-  padding: 60px 0;
+  padding: 200px 0 260px 0;
   display: flex;
   justify-content: center;
 }
@@ -14,7 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-direction: column;
-  gap: 40px;
+  gap: 64px;
   box-sizing: border-box;
 }
 @media (max-width: 1400px) {
@@ -32,7 +32,7 @@
 @media (max-width: 768px) {
   .mission-section .mission {
     padding: 32px 16px;
-    gap: 24px;
+    gap: 16px;
   }
 }
 .mission-section .mission_name {
@@ -79,21 +79,24 @@
   gap: 8px;
 }
 .mission-section .mission_wrapper .mission_info h5 {
-  font-size: 20px;
+  font-family: var(--font-family);
   font-weight: 700;
-  color: #000;
-  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--black);
   margin: 0;
 }
 @media (max-width: 768px) {
   .mission-section .mission_wrapper .mission_info h5 {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 .mission-section .mission_wrapper .mission_info p {
+  font-family: var(--font-family);
+  font-weight: 400;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.7);
-  line-height: 1.4;
+  line-height: 125%;
+  color: var(--black);
   margin: 0;
 }
 @media (max-width: 768px) {
