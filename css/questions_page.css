@@ -75,7 +75,7 @@
 }
 .questions-section .questions .question_list.active .icon_box .tabler--plus {
   opacity: 0;
-  transform: rotate -90deg;
+  transform: rotate(-90deg);
 }
 .questions-section .questions .question_list.active .icon_box .line-md--minus {
   opacity: 1;
