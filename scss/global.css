@@ -354,11 +354,11 @@ header .head-mobile .head_link .range .round {
   padding: 100px 0 60px;
   color: #fff;
   border-radius: 16px;
-  max-width: 1342px;
+  max-width: 1824px;
   margin: 0 auto;
 }
 .footer-section .footer-main-bg .footer {
-  max-width: 1382px;
+  max-width: 1696px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -368,10 +368,10 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .footer-main-bg .footer .info_interact {
   flex: 1;
-  min-width: 250px;
+  max-width: 298px;
 }
 .footer-section .footer-main-bg .footer .info_interact .logotype img {
-  width: 150px;
+  width: 80px;
   margin-bottom: 20px;
 }
 .footer-section .footer-main-bg .footer .info_interact p {
@@ -405,7 +405,7 @@ header .head-mobile .head_link .range .round {
 .footer-section .footer-main-bg .footer .menu .menu_list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 48px;
   padding: 0;
   margin: 0;
 }
@@ -441,7 +441,8 @@ header .head-mobile .head_link .range .round {
 .footer-section .footer-main-bg .footer .procent_help .diagram_box {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 32px;
+  max-width: 587px;
 }
 .footer-section .footer-main-bg .footer .procent_help .diagram_box .pie-chart {
   width: 120px;
@@ -453,10 +454,23 @@ header .head-mobile .head_link .range .round {
   font-size: 24px;
   font-weight: bold;
 }
-.footer-section .footer-main-bg .footer .procent_help .diagram_box .prosent_list p {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 5px;
+.footer-section .footer-main-bg .footer .procent_help .diagram_box .text_procent {
+  gap: 32px;
+  max-width: 299px;
+}
+.footer-section .footer-main-bg .footer .procent_help .diagram_box .text_procent p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--white);
+}
+.footer-section .footer-main-bg .footer .procent_help .diagram_box .text_procent .prosent_list p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--white);
 }
 .footer-section .footer-main-bg .footer .procent_help .contact {
   display: flex;
@@ -464,6 +478,26 @@ header .head-mobile .head_link .range .round {
   align-items: flex-end;
   flex-direction: column;
   gap: 48px;
+  padding-left: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.footer-section .footer-main-bg .footer .procent_help .contact .contact_text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.footer-section .footer-main-bg .footer .procent_help .contact .contact_text p {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 100%;
+}
+.footer-section .footer-main-bg .footer .procent_help .contact .contact_text .num {
+  gap: 16px;
+}
+.footer-section .footer-main-bg .footer .procent_help .contact .contact_text .num p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .social-row {
   display: flex;
@@ -485,7 +519,7 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .connection input {
   padding: 12px;
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   border: none;
   width: 200px;
 }
@@ -494,6 +528,6 @@ header .head-mobile .head_link .range .round {
   color: #fff;
   border: none;
   padding: 12px 20px;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   cursor: pointer;
 }/*# sourceMappingURL=global.css.map */
