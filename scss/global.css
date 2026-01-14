@@ -298,15 +298,13 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .help_money {
   position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto -50px;
+  max-width: 1362px;
+  margin: 0 auto;
   background: #fff;
-  padding: 30px 40px;
-  border-radius: 15px;
+  padding: 64px;
+  border-radius: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 992px) {
@@ -318,7 +316,7 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .help_money .money {
   display: flex;
-  gap: 10px;
+  gap: 32px;
   align-items: center;
 }
 .footer-section .help_money .money .amount_btn {
@@ -335,19 +333,25 @@ header .head-mobile .head_link .range .round {
   border-color: #0066ff;
 }
 .footer-section .help_money .money input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 120px;
+  border: 1px solid var(--royal-blue);
+  border-radius: 16px;
+  padding: 16px 20px;
+  width: 256px;
+  height: 60px;
+  background: var(--almost-white);
 }
 .footer-section .help_money .button_help {
-  background: #0047ff;
+  background: var(--blue);
   color: #fff;
   border: none;
-  padding: 15px 40px;
-  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 16px;
+  padding: 20px;
+  width: 250px;
+}
+.footer-section .help_money .button_help:hover {
+  transform: scale(1.05);
 }
 .footer-section .footer-main-bg {
   background: #001a4d;
@@ -368,39 +372,57 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .footer-main-bg .footer .info_interact {
   flex: 1;
-  max-width: 298px;
+  border-right: 1px solid var(--white);
+  height: 376px;
 }
 .footer-section .footer-main-bg .footer .info_interact .logotype img {
   width: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .footer-section .footer-main-bg .footer .info_interact p {
-  font-size: 14px;
-  opacity: 0.8;
-  line-height: 1.5;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--white);
 }
 .footer-section .footer-main-bg .footer .info_interact .recvizite {
-  margin-top: 30px;
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+}
+.footer-section .footer-main-bg .footer .info_interact .recvizite p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--white);
 }
 .footer-section .footer-main-bg .footer .info_interact .recvizite a {
-  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--light-blue);
   text-decoration: none;
-  opacity: 0.6;
-  font-size: 13px;
 }
 .footer-section .footer-main-bg .footer .info_interact .recvizite .bank-details {
+  font-family: var(--font-family);
+  font-weight: 400;
   font-size: 12px;
-  opacity: 0.5;
-  margin-top: 10px;
+  line-height: 133%;
+  color: var(--medium-grey);
 }
 .footer-section .footer-main-bg .footer .menu {
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid var(--white);
+  padding: 0px 32px 0px 0px;
+  width: 199px;
+  height: 376px;
+  align-items: center;
+  justify-content: center;
 }
 .footer-section .footer-main-bg .footer .menu .menu_list {
   display: flex;
@@ -435,14 +457,16 @@ header .head-mobile .head_link .range .round {
   flex: 2;
   display: flex;
   gap: 40px;
-  padding-left: 40px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .footer-section .footer-main-bg .footer .procent_help .diagram_box {
   display: flex;
   align-items: center;
   gap: 32px;
   max-width: 587px;
+  border-right: 1px solid var(--white);
+  padding: 0px 32px 0px 0px;
+  width: 587px;
+  height: 376px;
 }
 .footer-section .footer-main-bg .footer .procent_help .diagram_box .pie-chart {
   width: 120px;
@@ -478,8 +502,6 @@ header .head-mobile .head_link .range .round {
   align-items: flex-end;
   flex-direction: column;
   gap: 48px;
-  padding-left: 40px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .contact_text {
   display: flex;
@@ -518,16 +540,28 @@ header .head-mobile .head_link .range .round {
   gap: 0;
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .connection input {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  width: 200px;
+  border: 1px solid var(--royal-blue);
+  border-radius: 16px;
+  padding: 16px 20px;
+  background: var(--almost-white);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 200%;
+  color: var(--dark-grey);
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .connection .subscribe {
-  background: #0047ff;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
   cursor: pointer;
+  border-radius: 16px;
+  padding: 12px 20px;
+  background: var(--blue);
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 167%;
+  color: var(--white);
+  border: none;
+}
+.footer-section .footer-main-bg .footer .procent_help .contact .connection .subscribe:hover {
+  transform: scale(1.05);
 }/*# sourceMappingURL=global.css.map */

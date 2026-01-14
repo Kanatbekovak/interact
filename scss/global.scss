@@ -287,15 +287,15 @@ header {
     // БЕЛАЯ ПАНЕЛЬ ПОЖЕРТВОВАНИЙ
     .help_money {
         position: relative;
-        z-index: 2;
-        max-width: 900px;
-        margin: 0 auto -50px; // Нависает на синий блок
+        // z-index: 2;
+        max-width: 1362px;
+        margin: 0 auto;
         background: #fff;
-        padding: 30px 40px;
-        border-radius: 15px;
+        padding: 64px;
+        border-radius: 16px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        // align-items: center;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
         @media (max-width: 992px) {
@@ -306,7 +306,7 @@ header {
 
         .money {
             display: flex;
-            gap: 10px;
+            gap: 32px;
             align-items: center;
 
             .amount_btn {
@@ -324,21 +324,29 @@ header {
             }
 
             input {
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 8px;
-                width: 120px;
+                border: 1px solid var(--royal-blue);
+                border-radius: 16px;
+                padding: 16px 20px;
+                width: 256px;
+                height: 60px;
+                background: var(--almost-white);
             }
         }
 
         .button_help {
-            background: #0047ff;
+            background: var(--blue);
             color: #fff;
             border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
+            border-radius: 16px;
+            padding: 20px ;
+            width: 250px;
+            // height: 60px;
+
+            &:hover {
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -362,27 +370,59 @@ header {
 
             .info_interact {
                 flex: 1;
-                max-width: 298px;
+                border-right: 1px solid var(--white);
+                // padding: 0px 32px 0px 0px;
+                // width: 298px;
+                height: 376px;
                 .logotype img { 
                     width: 80px; 
-                    margin-bottom: 20px; 
+                    margin-bottom: 24px; 
                 }
-                p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
+                p { 
+                    font-family: var(--font-family);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 150%;
+                    color: var(--white);
+                }
                 .recvizite {
-                    margin-top: 30px;
+                    margin-top: 56px;
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
-                    a { color: #fff; text-decoration: none; opacity: 0.6; font-size: 13px; }
-                    .bank-details { font-size: 12px; opacity: 0.5; margin-top: 10px; }
+                    gap: 16px;
+                    p {
+                        font-family: var(--font-family);
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 133%;
+                        color: var(--white);
+                    }
+                    a { 
+                        font-family: var(--font-family);
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 133%;
+                        color: var(--light-blue); 
+                        text-decoration: none;
+                    }
+                    .bank-details { font-family: var(--font-family);
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 133%;
+                        color: var(--medium-grey); 
+                    }
                 }
             }
 
             .menu {
                 display: flex;
                 flex-direction: column;
-                padding-left: 40px;
-                border-left: 1px solid rgba(255, 255, 255, 0.2); 
+                border-right: 1px solid var(--white);
+                padding: 0px 32px 0px 0px;
+                width: 199px;
+                height: 376px;
+                align-items:center;
+                justify-content: center;
 
                 .menu_list {
                     display: flex;
@@ -410,7 +450,6 @@ header {
                     }
                 }
 
-                // Убираем линию на мобилках, чтобы не мешала
                 @media (max-width: 1100px) { 
                     border-left: none; 
                     padding-left: 0; 
@@ -422,14 +461,21 @@ header {
                 flex: 2;
                 display: flex;
                 gap: 40px;
-                padding-left: 40px;
-                border-left: 1px solid rgba(255, 255, 255, 0.2);
+                // padding-left: 40px;
+                // border-left: 1px solid var(--white);
+
+                
 
                 .diagram_box {
                     display: flex;
                     align-items: center;
                     gap: 32px;
                     max-width: 587px;
+
+                    border-right: 1px solid var(--white);
+                    padding: 0px 32px 0px 0px;
+                    width: 587px;
+                    height: 376px;
                     
                     .pie-chart {
                         width: 120px;
@@ -438,13 +484,6 @@ header {
                         border-radius: 50%;
                     }
                     .pie-label { font-size: 24px; font-weight: bold; }
-                    
-
-                    // .text_procent {
-                    //     gap: 32px;
-
-                    //     .prosent_list p { font-size: 13px; opacity: 0.7; margin-bottom: 5px; }
-                    // }
 
                     .text_procent {
                         gap: 32px;
@@ -476,14 +515,15 @@ header {
                     flex-direction: column;
                     gap: 48px;
 
-                    padding-left: 40px;
-                    border-left: 1px solid rgba(255, 255, 255, 0.2);
+                    // padding-left: 40px;
+                    // border-left: 1px solid rgba(255, 255, 255, 0.2);
 
                     .contact_text {
                         display: flex;
                         flex-direction: column;
                         gap: 24px;
-                        p {font-weight: 400;
+                        p {
+                            font-weight: 400;
                             font-size: 32px;
                             line-height: 100%;
                         }
@@ -512,11 +552,38 @@ header {
                         display: flex;
                         gap: 0;
                         input {
-                            padding: 12px; border-radius: 8px; border: none; width: 200px;
+                            border: 1px solid var(--royal-blue);
+                            border-radius: 16px;
+                            padding: 16px 20px;
+                            background: var(--almost-white);
+                            font-family: var(--font-family);
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 200%;
+                            color: var(--dark-grey);
                         }
                         .subscribe {
-                            background: #0047ff; color: #fff; border: none;
-                            padding: 12px 20px; border-radius: 8px; cursor: pointer;
+                            // background: #0047ff; 
+                            // color: #fff; 
+                            // border: none;
+                            // padding: 12px 20px; 
+                            // border-radius: 8px; 
+                            cursor: pointer;
+                            border-radius: 16px;
+                            padding: 12px 20px;
+                            // width: 169px;
+                            // height: 64px;
+                            background: var(--blue);
+                            font-family: var(--second-family);
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 167%;
+                            color: var(--white);
+                            border: none;
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
                         }
                     }
                 }
@@ -526,258 +593,3 @@ header {
 }
 
 
-// .footer-section {
-//     position: relative;
-//     padding-top: 60px;
-//     background: #000;
-
-//     .help_money {
-//         position: relative;
-//         z-index: 2;
-//         max-width: 900px;
-//         margin: 0 auto -50px;
-//         background: #fff;
-//         padding: 30px 40px;
-//         border-radius: 15px;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-//         @media (max-width: 992px) {
-//             flex-direction: column;
-//             gap: 20px;
-//             width: 95%;
-//         }
-
-//         .money {
-//             display: flex;
-//             gap: 10px;
-//             align-items: center;
-//             flex-wrap: wrap; // Чтобы кнопки не вылезали на мобилках
-
-//             .amount_btn {
-//                 padding: 10px 20px;
-//                 border: 1px solid #ccc;
-//                 background: #eee;
-//                 border-radius: 8px;
-//                 font-size: 14px;
-//                 cursor: pointer;
-//                 transition: 0.3s;
-                
-//                 &:hover { background: #e0e0e0; }
-                
-//                 &.active {
-//                     background: #0066ff;
-//                     color: #fff;
-//                     border-color: #0066ff;
-//                 }
-//             }
-
-//             input {
-//                 padding: 10px;
-//                 border: 1px solid #ccc;
-//                 border-radius: 8px;
-//                 width: 140px;
-//                 outline: none;
-//             }
-//         }
-
-//         .button_help {
-//             background: #0047ff;
-//             color: #fff;
-//             border: none;
-//             padding: 15px 40px;
-//             border-radius: 10px;
-//             font-weight: 600;
-//             cursor: pointer;
-//             white-space: nowrap;
-//             transition: 0.3s;
-
-//             &:hover { background: #0036cc; transform: translateY(-2px); }
-//         }
-//     }
-
-//     .footer-main-bg {
-//         background: #001a4d;
-//         padding: 100px 0 60px;
-//         color: #fff;
-//         border-radius: 16px;
-//         max-width: 1342px;
-//         margin: 0 auto;
-
-//         .footer {
-//             max-width: 100%;
-//             margin: 0 auto;
-//             display: flex;
-//             justify-content: space-between;
-//             align-items: stretch; // Растягиваем, чтобы линии border-left были одинаковыми
-//             gap: 20px;
-//             padding: 0 20px;
-
-//             @media (max-width: 1200px) {
-//                 flex-wrap: wrap;
-//                 justify-content: center;
-//             }
-
-//             .info_interact {
-//                 flex: 1;
-//                 min-width: 200px;
-//                 .logotype img { width: 80px; margin-bottom: 20px; }
-//                 p { font-size: 14px; opacity: 0.8; line-height: 1.5; font-family: var(--font-family); }
-//                 .recvizite {
-//                     margin-top: 30px;
-//                     display: flex;
-//                     flex-direction: column;
-//                     gap: 8px;
-//                     a { color: #fff; text-decoration: none; opacity: 0.6; font-size: 13px; &:hover { opacity: 1; } }
-//                     .bank-details { font-size: 12px; opacity: 0.5; margin-top: 10px; line-height: 1.4; }
-//                 }
-//             }
-
-//             .menu {
-//                 display: flex;
-//                 flex-direction: column;
-//                 padding: 0 30px;
-//                 border-left: 1px solid rgba(255, 255, 255, 0.2);
-
-//                 .menu_list {
-//                     display: flex;
-//                     flex-direction: column;
-//                     gap: 20px; // Уменьшил с 48px, чтобы всё влезло по высоте
-
-//                     a {
-//                         color: var(--white);
-//                         text-decoration: none;
-//                         font-size: 18px;
-//                         font-weight: 500;
-//                         font-family: var(--second-family);
-//                         transition: 0.3s;
-//                         white-space: nowrap;
-
-//                         &:hover {
-//                             color: var(--blue);
-//                             padding-left: 5px;
-//                         }
-//                     }
-//                 }
-
-//                 @media (max-width: 1100px) {
-//                     border-left: none;
-//                     padding: 20px 0;
-//                     align-items: center;
-//                 }
-//             }
-
-//             .procent_help {
-//                 flex: 2;
-//                 display: flex;
-//                 justify-content: space-between; // Разносим диаграмму и контакты
-//                 gap: 30px;
-//                 padding-left: 30px;
-//                 border-left: 1px solid rgba(255, 255, 255, 0.2);
-
-//                 @media (max-width: 900px) {
-//                     flex-direction: column;
-//                     border-left: none;
-//                     padding-left: 0;
-//                 }
-
-//                 .diagram_box {
-//                     display: flex;
-//                     align-items: center;
-//                     gap: 20px;
-
-//                     .diagram {
-//                         position: relative; // Для позиционирования метки внутри
-//                         width: 120px;
-//                         height: 120px;
-//                         display: flex;
-//                         justify-content: center;
-//                         align-items: center;
-
-//                         .pie-chart {
-//                             position: absolute;
-//                             width: 100%;
-//                             height: 100%;
-//                             background: conic-gradient(#0047ff 75%, #5e92ff 0);
-//                             border-radius: 50%;
-//                         }
-//                         .pie-label { 
-//                             position: relative; // Поверх чарта
-//                             z-index: 1;
-//                             font-size: 22px; 
-//                             font-weight: bold; 
-//                         }
-//                     }
-
-//                     .text_procent {
-//                         p { font-size: 18px; margin-bottom: 10px; font-family: var(--font-family); }
-//                         .prosent_list p { font-size: 12px; opacity: 0.7; margin-bottom: 4px; }
-//                     }
-//                 }
-
-//                 .contact {
-//                     display: flex;
-//                     flex-direction: column;
-//                     justify-content: space-between;
-//                     align-items: flex-end;
-//                     text-align: right;
-//                     min-width: 250px;
-
-//                     @media (max-width: 900px) { align-items: center; text-align: center; }
-
-//                     .contact_text {
-//                         h2 { font-size: 24px; margin-bottom: 10px; }
-//                         p { font-size: 20px; opacity: 0.9; }
-//                     }
-                    
-//                     .social-row { 
-//                         display: flex; 
-//                         gap: 12px; 
-//                         margin: 15px 0; 
-                        
-//                         .social_media {
-//                             width: 40px; 
-//                             height: 40px; 
-//                             border-radius: 50%; 
-//                             background: var(--white);
-//                             border: none; 
-//                             color: #000; 
-//                             cursor: pointer;
-//                             display: flex;
-//                             justify-content: center;
-//                             align-items: center;
-//                             transition: 0.3s;
-//                             &:hover { background: var(--blue); color: #fff; transform: scale(1.1); }
-//                         }
-//                     }
-
-//                     .connection {
-//                         display: flex;
-//                         width: 100%;
-                        
-//                         input {
-//                             flex: 1;
-//                             padding: 12px; 
-//                             border-radius: 8px 0 0 8px; // Закругление только слева
-//                             border: none; 
-//                             outline: none;
-//                             min-width: 150px;
-//                         }
-//                         .subscribe {
-//                             background: #0047ff; 
-//                             color: #fff; 
-//                             border: none;
-//                             padding: 12px 15px; 
-//                             border-radius: 0 8px 8px 0; // Закругление только справа
-//                             cursor: pointer;
-//                             transition: 0.3s;
-//                             &:hover { background: #0036cc; }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
