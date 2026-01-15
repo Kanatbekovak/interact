@@ -599,7 +599,8 @@ header {
 
 .footer-section {
     position: relative;
-    padding-top: 60px;
+    // padding-top: 60px;
+    padding: 60px 20px;
 
     // БЕЛАЯ ПАНЕЛЬ ПОЖЕРТВОВАНИЙ
     .help_money {
@@ -618,7 +619,7 @@ header {
         @media (max-width: 992px) {
             flex-direction: column;
             gap: 32px;
-            margin-bottom: -100px; // Увеличиваем нависание для мобил
+            margin-bottom: -330px; // Увеличиваем нависание для мобил
             width: 92%;
             padding: 30px 20px;
         }
@@ -714,6 +715,9 @@ header {
         border-radius: 16px;
         max-width: 1824px;
         margin: 0 auto;
+        @media (max-width: 992px) {
+            padding: 385px 0 60px;
+        }
 
         .footer {
             max-width: 1696px;
@@ -788,13 +792,13 @@ header {
                     margin-top: 40px;
                     @media (max-width: 1100px) {
                         position: absolute;
-                        left: 0;
-                        right: 0;
+                        // left: 0;
+                        // right: 0;
                         bottom: -40px; 
                         order: 5;
-                        margin-top: 60px;
-                        border-top: 1px solid rgba(255, 255, 255, 0.1);
-                        padding-top: 20px;
+                        // margin-top: 60px;
+                        // border-top: 1px solid rgba(255, 255, 255, 0.1);
+                        // padding-top: 20px;
                     }
                 }
             }
@@ -805,11 +809,20 @@ header {
                 flex-direction: column;
                 justify-content: center;
 
+
                 .menu_list {
                     display: flex;
                     flex-direction: column; 
                     gap: 30px; 
                     padding: 0;
+
+                    @media (max-width: 1100px) { 
+                    // order: 2; 
+                    // border-right: none;
+                    // flex: 1;
+                    // align-items: center;
+                    gap: 24pxs;
+                }
 
                     a { 
                         color: var(--white); 
@@ -826,12 +839,7 @@ header {
 
                     }
 
-        @media (max-width: 1100px) { 
-            order: 2; 
-            border-right: none;
-            flex: 1;
-            align-items: center;
-        }
+        
         }
     }
     
