@@ -294,7 +294,6 @@ header .head-mobile .head_link .range .round {
 .footer-section {
   position: relative;
   padding-top: 60px;
-  background: #000;
 }
 .footer-section .help_money {
   position: relative;
@@ -309,17 +308,13 @@ header .head-mobile .head_link .range .round {
   align-items: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 1200px) {
-  .footer-section .help_money {
-    padding: 30px;
-    width: 95%;
-  }
-}
 @media (max-width: 992px) {
   .footer-section .help_money {
     flex-direction: column;
-    gap: 24px;
-    margin-bottom: -50px;
+    gap: 32px;
+    margin-bottom: -100px;
+    width: 92%;
+    padding: 30px 20px;
   }
 }
 .footer-section .help_money .money {
@@ -327,6 +322,24 @@ header .head-mobile .head_link .range .round {
   gap: 20px;
   align-items: center;
   flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .footer-section .help_money .money {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 12px;
+  }
+  .footer-section .help_money .money .amount_btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+  }
+  .footer-section .help_money .money input {
+    grid-column: span 2;
+    width: 100%;
+    max-width: none;
+  }
 }
 .footer-section .help_money .money .amount_btn {
   padding: 12px 24px;
@@ -372,6 +385,11 @@ header .head-mobile .head_link .range .round {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 71, 255, 0.3);
 }
+@media (max-width: 600px) {
+  .footer-section .help_money .button_help {
+    width: 100%;
+  }
+}
 .footer-section .footer-main-bg {
   background: #001a4d;
   padding: 160px 0 60px;
@@ -391,23 +409,37 @@ header .head-mobile .head_link .range .round {
 }
 @media (max-width: 1100px) {
   .footer-section .footer-main-bg .footer {
-    flex-wrap: wrap;
-    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
   }
 }
 .footer-section .footer-main-bg .footer .info_interact, .footer-section .footer-main-bg .footer .menu, .footer-section .footer-main-bg .footer .diagram_box {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   padding-right: 32px;
 }
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .info_interact, .footer-section .footer-main-bg .footer .menu, .footer-section .footer-main-bg .footer .diagram_box {
+    border-right: none;
+    padding-right: 0;
+    width: 100%;
+  }
+}
 .footer-section .footer-main-bg .footer .info_interact {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   min-width: 280px;
 }
-.footer-section .footer-main-bg .footer .info_interact .logotype img {
-  width: 100px;
-  margin-bottom: 24px;
+.footer-section .footer-main-bg .footer .info_interact .logotype {
+  flex-direction: row;
 }
-.footer-section .footer-main-bg .footer .info_interact p {
+.footer-section .footer-main-bg .footer .info_interact .logotype img {
+  width: 80px;
+  margin-bottom: 24px;
+  flex-direction: row;
+}
+.footer-section .footer-main-bg .footer .info_interact .logotype p {
   font-family: var(--font-family);
   font-size: 16px;
   line-height: 1.5;
@@ -436,6 +468,26 @@ header .head-mobile .head_link .range .round {
   color: var(--medium-grey);
   font-size: 11px;
 }
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .info_interact {
+    flex-direction: row;
+  }
+}
+.footer-section .footer-main-bg .footer .info_interact .recvizite {
+  margin-top: 40px;
+}
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .info_interact .recvizite {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -40px;
+    order: 5;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+  }
+}
 .footer-section .footer-main-bg .footer .menu {
   flex: 0 1 200px;
   display: flex;
@@ -461,7 +513,8 @@ header .head-mobile .head_link .range .round {
   padding-left: 8px;
 }
 @media (max-width: 1100px) {
-  .footer-section .footer-main-bg .footer .menu {
+  .footer-section .footer-main-bg .footer .menu .menu_list {
+    order: 2;
     border-right: none;
     flex: 1;
     align-items: center;
@@ -474,6 +527,13 @@ header .head-mobile .head_link .range .round {
 @media (max-width: 1400px) {
   .footer-section .footer-main-bg .footer .procent_help {
     flex-direction: column;
+    gap: 40px;
+  }
+}
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .procent_help {
+    order: 3;
+    width: 100%;
   }
 }
 .footer-section .footer-main-bg .footer .procent_help .diagram_box {
@@ -513,6 +573,11 @@ header .head-mobile .head_link .range .round {
   opacity: 0.8;
   line-height: 1.4;
   margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  .footer-section .footer-main-bg .footer .procent_help .diagram_box {
+    flex-direction: column;
+  }
 }
 .footer-section .footer-main-bg .footer .procent_help .contact {
   flex: 1;
@@ -576,6 +641,11 @@ header .head-mobile .head_link .range .round {
   background: var(--almost-white);
   outline: none;
 }
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .procent_help .contact .connection input {
+    flex: none;
+  }
+}
 .footer-section .footer-main-bg .footer .procent_help .contact .connection .subscribe {
   height: 56px;
   border-radius: 12px;
@@ -591,4 +661,31 @@ header .head-mobile .head_link .range .round {
 }
 .footer-section .footer-main-bg .footer .procent_help .contact .connection .subscribe:hover {
   background: #0036cc;
+}
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer .procent_help .contact {
+    order: 4;
+    align-items: center;
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-section .footer-main-bg .footer .procent_help .contact .connection {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-section .footer-main-bg .footer .procent_help .contact .connection .subscribe {
+    width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .footer-section .footer-main-bg .footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .footer-section .footer-main-bg .info_interact .recvizite {
+    order: 10;
+    width: 100%;
+  }
 }/*# sourceMappingURL=global.css.map */
