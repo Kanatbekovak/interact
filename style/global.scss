@@ -1018,7 +1018,6 @@ header {
     }
 }
 
-/* Модальное окно */
 .modal {
     display: none;
     position: fixed;
@@ -1033,101 +1032,204 @@ header {
         border-radius: 16px;
         padding: 48px;
         max-width: 1200px;
-        // height: 1076px; 
         margin: 50px auto;
         position: relative;
         font-family: sans-serif;
+
+        h1 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: 80px;
+            line-height: 90%;
+            color: var(--royal-blue);
+            // margin-bottom: 48px;
+        }
+
+        .close-btn {
+            position: absolute;
+            // top: 20px; 
+            right: 20px;
+            background: var(--white); 
+            border: 1px solid var(--royal-blue);
+            border-radius: 50%;
+            width: 32px; 
+            height: 32px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            // padding: 0;
+
+            span {
+                display: block;
+                line-height: 1;
+                font-size: 24px;
+            }
+        }
+
+        .button_first_question {
+            display: flex;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            gap: 8px;
+            margin-top: 48px;
+
+            button {
+                flex: 1; border: none; 
+                padding: 12px;
+                border-radius: 8px; 
+                cursor: pointer;
+                background: var(--white); 
+                font-weight: bold;
+                transition: 0.3s;
+
+                &.active {
+                    background: #2D50C4; color: #fff;
+                }
+            }
+        }
+
+        .form-group { 
+            margin-bottom: 24px;
+
+            label { 
+                display: block; 
+                font-family: var(--font-family);
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+                color: var(--black);
+                margin-bottom: 8px;
+            }
+
+            .sum_form {
+                display: grid;
+                grid-template-columns: repeat(4, 0.29fr) 1.5fr; 
+                gap: 32px; 
+                margin-top: 10px;
+
+                .moneyfff {
+                    background: var(--medium-grey, #ccc);
+                    border: none; 
+                    padding: 18px;
+                    border-radius: 8px; 
+                    cursor: pointer;
+                    font-weight: bold;
+
+                    &.selected {
+                        background: var(--light-blue);
+                        color: #fff;
+                    }
+                }
+
+                #custom_sum {
+                    grid-column: auto; 
+                    margin-top: 0;
+                    height: 100%;
+                }
+            }
+        }
     }
 }
 
 
-
-.modal-content h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* Кнопка закрытия */
-.close-btn {
-    position: absolute;
-    top: 20px; right: 20px;
-    background: none; border: none;
-    font-size: 30px; cursor: pointer;
-}
-
-/* Переключатель */
-.button_first_question {
-    display: flex;
-    background: #fff;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    padding: 4px;
-}
-
-.button_first_question button {
-    flex: 1; border: none; padding: 12px;
-    border-radius: 8px; cursor: pointer;
-    background: transparent; font-weight: bold;
-}
-
-.button_first_question button.active {
-    background: #2D50C4; color: #fff;
-}
-
-/* Сетка суммы */
-.sum_form {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.moneyfff {
-    background: #BDBDBD;
-    border: none; padding: 12px;
-    border-radius: 8px; cursor: pointer;
-}
-
-.moneyfff.selected {
-    background: #2D50C4; color: #fff;
-}
-
-#custom_sum {
-    grid-column: span 4;
-    margin-top: 5px;
-}
-
-/* Поля ввода */
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; font-size: 13px; margin-bottom: 5px; color: #444; }
-
 input[type="text"], input[type="email"], textarea {
-    width: 100%; padding: 12px;
+    width: 100%; padding: 14px;
     border: 1px solid #A0A0A0;
     border-radius: 10px; background: #F5F5F5;
     box-sizing: border-box;
+    font-size: 16px;
 }
-
-textarea { height: 80px; resize: none; }
-
-.input-row { display: flex; gap: 15px; }
+textarea { height: 100px; resize: none; }
+.input-row { display: flex; gap: 20px; }
 .input-row .form-group { flex: 1; }
-
-/* Кнопка */
 .btn-primary {
-    background: #2D50C4; color: #fff;
-    border: none; padding: 15px 40px;
+    background: var(--blue); color: #fff;
+    border: none; padding: 18px 50px;
     border-radius: 10px; font-weight: bold;
-    cursor: pointer; font-size: 16px;
+    cursor: pointer; font-size: 18px;
+    border-radius: 16px;
+    padding: 20px;
+    width: 400px;
+    height: 64px;
 }
-
-/* Индикатор шагов */
-.step-indicator { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
-.step-dot { width: 10px; height: 10px; background: #999; border-radius: 50%; }
+.step-dot { width: 12px; height: 12px; background: #bbb; border-radius: 50%; }
 .step-dot.active { background: #2D50C4; }
-
-.modal-step { display: none; }
+.modal-step { 
+    display: none; 
+    p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--black);
+        margin: 24px 0 24px 0;
+    }
+}
 .modal-step.active { display: block; }
 
-.oferta-container { display: flex; align-items: center; gap: 10px; margin: 15px 0; font-size: 14px; }
+.oferta-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+
+
+    label {
+        cursor: pointer;
+        font-family: var(--font-family);
+        color: var(--black);
+    }
+
+    a {
+        border-bottom: 1px solid var(--blue);
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--blue);
+        text-decoration: none;
+    }
+
+    .checkbox-wrapper {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--royal-blue); 
+            border-radius: 50%;
+            background: transparent; 
+            cursor: pointer;
+            margin: 0;
+            position: absolute;
+            outline: none;
+        }
+
+        .fluent--checkmark-12-regular {
+            color: var(--royal-blue); 
+            font-size: 22px;
+            pointer-events: none; 
+            display: none; 
+            z-index: 1;
+            
+        }
+    }
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .fluent--checkmark-12-regular {
+    display: block;
+}
+
+.checkbox-wrapper input[type="checkbox"]:hover {
+    background: rgba(45, 80, 196, 0.05); 
+}
+
+

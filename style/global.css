@@ -700,7 +700,6 @@ header .head-mobile .head_link .range .round {
   background: #0036cc;
 }
 
-/* Модальное окно */
 .modal {
   display: none;
   position: fixed;
@@ -721,133 +720,131 @@ header .head-mobile .head_link .range .round {
   position: relative;
   font-family: sans-serif;
 }
-
-.modal-content h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  font-weight: bold;
+.modal .modal-content h1 {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 90%;
+  color: var(--royal-blue);
 }
-
-/* Кнопка закрытия */
-.close-btn {
+.modal .modal-content .close-btn {
   position: absolute;
-  top: 20px;
   right: 20px;
-  background: none;
-  border: none;
-  font-size: 30px;
+  background: var(--white);
+  border: 1px solid var(--royal-blue);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
-
-/* Переключатель */
-.button_first_question {
+.modal .modal-content .close-btn span {
+  display: block;
+  line-height: 1;
+  font-size: 24px;
+}
+.modal .modal-content .button_first_question {
   display: flex;
-  background: #fff;
   border-radius: 10px;
   margin-bottom: 25px;
-  padding: 4px;
+  gap: 8px;
+  margin-top: 48px;
 }
-
-.button_first_question button {
+.modal .modal-content .button_first_question button {
   flex: 1;
   border: none;
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
-  background: transparent;
+  background: var(--white);
   font-weight: bold;
+  transition: 0.3s;
 }
-
-.button_first_question button.active {
+.modal .modal-content .button_first_question button.active {
   background: #2D50C4;
   color: #fff;
 }
-
-/* Сетка суммы */
-.sum_form {
+.modal .modal-content .form-group {
+  margin-bottom: 24px;
+}
+.modal .modal-content .form-group label {
+  display: block;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.modal .modal-content .form-group .sum_form {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, 0.29fr) 1.5fr;
+  gap: 32px;
   margin-top: 10px;
 }
-
-.moneyfff {
-  background: #BDBDBD;
+.modal .modal-content .form-group .sum_form .moneyfff {
+  background: var(--medium-grey, #ccc);
   border: none;
-  padding: 12px;
+  padding: 18px;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
 }
-
-.moneyfff.selected {
-  background: #2D50C4;
+.modal .modal-content .form-group .sum_form .moneyfff.selected {
+  background: var(--light-blue);
   color: #fff;
 }
-
-#custom_sum {
-  grid-column: span 4;
-  margin-top: 5px;
-}
-
-/* Поля ввода */
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 13px;
-  margin-bottom: 5px;
-  color: #444;
+.modal .modal-content .form-group .sum_form #custom_sum {
+  grid-column: auto;
+  margin-top: 0;
+  height: 100%;
 }
 
 input[type=text], input[type=email], textarea {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #A0A0A0;
   border-radius: 10px;
   background: #F5F5F5;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 textarea {
-  height: 80px;
+  height: 100px;
   resize: none;
 }
 
 .input-row {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .input-row .form-group {
   flex: 1;
 }
 
-/* Кнопка */
 .btn-primary {
-  background: #2D50C4;
+  background: var(--blue);
   color: #fff;
   border: none;
-  padding: 15px 40px;
+  padding: 18px 50px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
-}
-
-/* Индикатор шагов */
-.step-indicator {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  border-radius: 16px;
+  padding: 20px;
+  width: 400px;
+  height: 64px;
 }
 
 .step-dot {
-  width: 10px;
-  height: 10px;
-  background: #999;
+  width: 12px;
+  height: 12px;
+  background: #bbb;
   border-radius: 50%;
 }
 
@@ -858,6 +855,14 @@ textarea {
 .modal-step {
   display: none;
 }
+.modal-step p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--black);
+  margin: 24px 0 24px 0;
+}
 
 .modal-step.active {
   display: block;
@@ -866,7 +871,57 @@ textarea {
 .oferta-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 15px 0;
-  font-size: 14px;
+  gap: 12px;
+  margin: 24px 0;
+}
+.oferta-container label {
+  cursor: pointer;
+  font-family: var(--font-family);
+  color: var(--black);
+}
+.oferta-container a {
+  border-bottom: 1px solid var(--blue);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--blue);
+  text-decoration: none;
+}
+.oferta-container .checkbox-wrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.oferta-container .checkbox-wrapper input[type=checkbox] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--royal-blue);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  position: absolute;
+  outline: none;
+}
+.oferta-container .checkbox-wrapper .fluent--checkmark-12-regular {
+  color: var(--royal-blue);
+  font-size: 22px;
+  pointer-events: none;
+  display: none;
+  z-index: 1;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + .fluent--checkmark-12-regular {
+  display: block;
+}
+
+.checkbox-wrapper input[type=checkbox]:hover {
+  background: rgba(45, 80, 196, 0.05);
 }/*# sourceMappingURL=global.css.map */

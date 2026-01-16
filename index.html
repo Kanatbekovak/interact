@@ -691,74 +691,77 @@
     </div>
          -->
 
-         <div class="modal" id="invitationModal">
-    <div class="modal-content">
-        <button class="close-btn" id="closeModal">&times;</button>
-        
-        <div class="step-indicator">
-            <div class="step-dot active" id="step1Dot"></div>
-            <div class="step-dot" id="step2Dot"></div>
-        </div>
+        <div class="modal" id="invitationModal">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal"><span class="material-symbols--close-rounded"></span></button>
+                
+                <div class="step-indicator">
+                    <div class="step-dot active" id="step1Dot" style="display: none;"></div>
+                    <div class="step-dot" id="step2Dot" style="display: none;"></div>
+                </div>
 
-        <div class="modal-step active" id="step1">
-            <h1>Сделать пожертвование</h1>
+                <div class="modal-step active" id="step1">
+                    <h1>Сделать пожертвование</h1>
 
-            <div class="button_first_question">
-                <button type="button" class="every_month active">Ежемесячно</button>
-                <button type="button" class="disposable">Разово</button>
-            </div>
-            
-            <div class="form-group">
-                <label>Выберите сумму</label>
-                <div class="sum_form">
-                    <button type="button" class="moneyfff">200 сом</button>
-                    <button type="button" class="moneyfff">500 сом</button>
-                    <button type="button" class="moneyfff selected">1000 сом</button>
-                    <button type="button" class="moneyfff">5000 сом</button>
-                    <input type="text" id="custom_sum" placeholder="Другая сумма">
+                    <div class="button_first_question">
+                        <button type="button" class="every_month active">Ежемесячно</button>
+                        <button type="button" class="disposable">Разово</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Выберите сумму</label>
+                        <div class="sum_form">
+                            <button type="button" class="moneyfff">200 сом</button>
+                            <button type="button" class="moneyfff">500 сом</button>
+                            <button type="button" class="moneyfff selected">1000 сом</button>
+                            <button type="button" class="moneyfff">5000 сом</button>
+                            <input type="text" id="custom_sum" placeholder="Другая сумма">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="card_number" placeholder="0000 0000 0000 0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Комментарий</label>
+                        <textarea id="comment" placeholder="Комментарий очень подробный, по пояснению, зачем нужен перевод средств. Со словами благодарности и долгих лет успеха."></textarea>
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Имя</label>
+                            <input type="text" id="name_form" placeholder="Иван">
+                        </div>
+                        <div class="form-group">
+                            <label>Фамилия</label>
+                            <input type="text" id="surname_form" placeholder="Иванов">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email_form" placeholder="example@mail.com">
+                    </div>
+                    
+                    <div class="oferta-container">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="oferta">
+                            <span class="fluent--checkmark-12-regular"></span>
+                        </div>
+                        <label for="oferta">Согласен с <a href="">офертой</a></label>
+                    </div>
+
+                    <button type="button" class="btn-primary" id="donate">Пожертвовать 1000 сом</button>
+                </div>
+
+                <div class="modal-step" id="step2">
+                    <h1>Оплата</h1>
+                    <p>Ваш платёж успешен. Спасибо за помощь!</p>
+                    <button type="button" class="btn-primary" id="okey">Хорошо</button>
                 </div>
             </div>
-
-            <div class="form-group">
-                <input type="text" id="card_number" placeholder="0000 0000 0000 0000">
-            </div>
-
-            <div class="form-group">
-                <label for="comment">Комментарий</label>
-                <textarea id="comment" placeholder="Ваш комментарий..."></textarea>
-            </div>
-            
-            <div class="input-row">
-                <div class="form-group">
-                    <label>Имя</label>
-                    <input type="text" id="name_form" placeholder="Иван">
-                </div>
-                <div class="form-group">
-                    <label>Фамилия</label>
-                    <input type="text" id="surname_form" placeholder="Иванов">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="email_form" placeholder="example@mail.com">
-            </div>
-            
-            <div class="oferta-container">
-                <input type="checkbox" id="oferta">
-                <label for="oferta">Согласен с офертой</label>
-            </div>
-
-            <button type="button" class="btn-primary" id="donate">Пожертвовать 1000 сом</button>
         </div>
-
-        <div class="modal-step" id="step2">
-            <h1>Оплата</h1>
-            <p>Ваш платёж успешен. Спасибо за помощь!</p>
-            <button type="button" class="btn-primary" id="okey">Хорошо</button>
-        </div>
-    </div>
-</div>
  
 </body>
 

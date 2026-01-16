@@ -74,3 +74,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('step2Dot').classList.add('active');
     };
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Находим контейнер с кнопками (Ежемесячно / Разово)
+    const typeButtons = document.querySelectorAll('.button_first_question button');
+
+    typeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 1. Убираем класс active у всех кнопок в этом блоке
+            typeButtons.forEach(b => b.classList.remove('active'));
+            
+            // 2. Добавляем класс active той кнопке, на которую нажали
+            this.classList.add('active');
+        });
+    });
+});
