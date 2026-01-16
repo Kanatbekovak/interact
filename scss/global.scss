@@ -664,11 +664,14 @@ header {
                 cursor: pointer;
                 transition: 0.3s;
 
-                &:hover { background: #f0f0f0; }
-                &.active {
+                &:hover {
                     background: var(--blue);
                     color: #fff;
-                    border-color: var(--blue);
+                    border-color: var(--blue);}
+                &.active {
+                    // background: var(--blue);
+                    // color: #fff;
+                    // border-color: var(--blue);
                 }
             }
 
@@ -961,7 +964,7 @@ header {
                 .connection {
                     display: flex;
                     width: 100%;
-                    max-width: 400px;
+                    max-width: 450px;
                     // gap: 10px;
 
 

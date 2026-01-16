@@ -356,9 +356,6 @@ header .head-mobile .head_link .range .round {
   transition: 0.3s;
 }
 .footer-section .help_money .money .amount_btn:hover {
-  background: #f0f0f0;
-}
-.footer-section .help_money .money .amount_btn.active {
   background: var(--blue);
   color: #fff;
   border-color: var(--blue);
@@ -652,7 +649,7 @@ header .head-mobile .head_link .range .round {
 .footer-section .footer-main-bg .footer .contact .connection {
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
 }
 @media (max-width: 600px) {
   .footer-section .footer-main-bg .footer .contact .connection {
