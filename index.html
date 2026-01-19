@@ -684,9 +684,6 @@
                 </div>
             </div>
         </div>
-        
-
-        <!-- <div class="modal_voluntur" id="invitationModalVoluntur">
             <div class="modal-content">
                 <button class="close-btn" id="closeModalVolun"><span class="material-symbols--close-rounded"></span></button>
                 
@@ -768,92 +765,92 @@
                 </div>
             </div>
         </div> -->
-        
+    
 
         <div class="modal_voluntur" id="invitationModalVoluntur">
-    <div class="modal-content">
-        <button class="close-btn" id="closeModalVolun">
-            <span class="material-symbols--close-rounded"></span>
-        </button>
-        
-        <div class="modal-step-vol active" id="step1Volun">
-            <h1>Анкета волонтёра</h1>
+            <div class="modal-content">
+                <button class="close-btn" id="closeModalVolun">
+                    <span class="material-symbols--close-rounded"></span>
+                </button>
+                
+                <div class="modal-step-vol active" id="step1Volun">
+                    <h1>Анкета волонтёра</h1>
 
-            <div class="input-row first-row">
-                <div class="form-group name-field">
-                    <label>Имя</label>
-                    <input type="text" id="name_volun" placeholder="Иван">
-                </div>
-                <div class="form-group date-field">
-                    <label>Дата рождения</label>
-                    <input type="text" id="birthday" placeholder="01.01.1995">
-                </div>
-                <div class="form-group gender-field">
-                    <label>Пол</label>
-                    <div class="gender-switch">
-                        <button type="button" class="gender-btn active">Мужской</button>
-                        <button type="button" class="gender-btn">Женский</button>
+                    <div class="input-row first-row">
+                        <div class="form-group name-field">
+                            <label>Имя</label>
+                            <input type="text" id="name_volun" placeholder="Иван">
+                        </div>
+                        <div class="form-group date-field">
+                            <label>Дата рождения</label>
+                            <input type="text" id="birthday" placeholder="01.01.1995">
+                        </div>
+                        <div class="form-group gender-field">
+                            <label>Пол</label>
+                            <div class="gender-switch">
+                                <button type="button" class="gender-btn active">Мужской</button>
+                                <button type="button" class="gender-btn">Женский</button>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email_volun" placeholder="example@mail.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Место жительства</label>
+                            <input type="text" id="city_volun" placeholder="Москва">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Есть ли у вас опыт, который может помочь в наших благотворительных проектах?</label>
+                            <textarea id="comment" placeholder="опыт"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="form-group">
+                            <label>Номер телефона</label>
+                            <input type="text" id="number" placeholder="+19000000000">
+                        </div>
+                        <div class="form-group">
+                            <label>Ссылка на социальные сети</label>
+                            <input type="text" id="social_media" placeholder="Ссылка">
+                        </div>
+                    </div>
+
+                    <label>Размер футболки</label>
+                    <div class="tshirt-container">
+                    <div class="tshirt-box">
+                            <label for="xs">XS</label>
+                            <input type="radio" name="tshirt" id="xs" value="XS">
+                        </div>
+                        <div class="tshirt-box">
+                            <label for="s">S</label>
+                            <input type="radio" name="tshirt" id="s" value="S">
+                        </div>
+                        <div class="tshirt-box">
+                            <label for="m">M</label>
+                            <input type="radio" name="tshirt" id="m" value="M" checked>
+                        </div>
+                        <div class="tshirt-box">
+                            <label for="l">L</label>
+                            <input type="radio" name="tshirt" id="l" value="L">
+                        </div>
+                    </div>
+                <button type="button" class="btn-primary" id="successVolun">Отправить</button>
+                </div>
+
+                <div class="modal-step-vol" id="step2Volun">
+                    <h1>Заявка принята</h1>
+                    <p>Спасибо за вашу готовность помочь!</p>
+                    <button type="button" class="btn-primary" id="okeyVolun">Хорошо</button>
                 </div>
             </div>
-
-            <div class="input-row">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="email_volun" placeholder="example@mail.com">
-                </div>
-                <div class="form-group">
-                    <label>Место жительства</label>
-                    <input type="text" id="city_volun" placeholder="Москва">
-                </div>
-            </div>
-
-            <div class="input-row">
-                <div class="form-group">
-                    <label>Есть ли у вас опыт, который может помочь в наших благотворительных проектах?</label>
-                    <textarea id="comment" placeholder="опыт"></textarea>
-                </div>
-            </div>
-
-            <div class="input-row">
-                <div class="form-group">
-                    <label>Номер телефона</label>
-                    <input type="text" id="number" placeholder="+19000000000">
-                </div>
-                <div class="form-group">
-                    <label>Ссылка на социальные сети</label>
-                    <input type="text" id="social_media" placeholder="Ссылка">
-                </div>
-            </div>
-
-            <label>Размер футболки</label>
-            <div class="tshirt-container">
-               <div class="tshirt-box">
-                    <label for="xs">XS</label>
-                    <input type="radio" name="tshirt" id="xs" value="XS">
-                </div>
-                <div class="tshirt-box">
-                    <label for="s">S</label>
-                    <input type="radio" name="tshirt" id="s" value="S">
-                </div>
-                <div class="tshirt-box">
-                    <label for="m">M</label>
-                    <input type="radio" name="tshirt" id="m" value="M" checked>
-                </div>
-                <div class="tshirt-box">
-                    <label for="l">L</label>
-                    <input type="radio" name="tshirt" id="l" value="L">
-                </div>
-            </div>
-        <button type="button" class="btn-primary" id="successVolun">Отправить</button>
-        </div>
-
-        <div class="modal-step-vol" id="step2Volun">
-            <h1>Заявка принята</h1>
-            <p>Спасибо за вашу готовность помочь!</p>
-            <button type="button" class="btn-primary" id="okeyVolun">Хорошо</button>
-        </div>
-    </div>
         </div> 
  
 </body>
