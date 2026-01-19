@@ -24,12 +24,11 @@ items.forEach(item => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('invitationModal');
-    const openBtns = document.querySelectorAll('.my_help'); // Все кнопки хедере
+    const openBtns = document.querySelectorAll('.my_help, .results_button');
     const closeBtn = document.getElementById('closeModal');
     const donateBtn = document.getElementById('donate');
     const moneyBtns = document.querySelectorAll('.moneyfff');
     const customSum = document.getElementById('custom_sum');
-    const resultsBtn = document.getElementById('.results_button');
 
   
     openBtns.forEach(btn => {
@@ -102,33 +101,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const okeyVolunBtn = document.getElementById('okeyVolun');
     const successBtn = document.getElementById('successVolun');
 
-    // Функция открытия
+
     const openModal = (e) => {
         e.preventDefault();
-        modalVolun.classList.add('active'); // В SCSS это включает display: flex
+        modalVolun.classList.add('active');
         document.body.style.overflow = 'hidden';
-        // Сброс на 1 шаг при открытии
         step1.classList.add('active');
         step2.classList.remove('active');
     };
 
-    // Функция закрытия
+
     const closeModal = () => {
         modalVolun.classList.remove('active');
         document.body.style.overflow = '';
     };
 
-    // Слушатели событий
     openVolunBtns.forEach(btn => btn.addEventListener('click', openModal));
     closeVolunBtn.addEventListener('click', closeModal);
     okeyVolunBtn.addEventListener('click', closeModal);
 
-    // Закрытие по клику на фон
+
     modalVolun.addEventListener('click', (e) => {
         if (e.target === modalVolun) closeModal();
     });
 
-    // Переключение пола
+
     const genderBtns = document.querySelectorAll('.gender-btn');
     genderBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -137,9 +134,85 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Переход ко второму шагу
+
     successBtn.addEventListener('click', () => {
         step1.classList.remove('active');
         step2.classList.add('active');
     });
+});
+
+
+/////////////////////
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const footerSection = document.querySelector('.footer-section');
+    const footerAmountBtns = footerSection.querySelectorAll('.amount_btn');
+    const footerInput = footerSection.querySelector('.money input');
+    const footerHelpBtn = footerSection.querySelector('.button_help');
+
+
+    const modal = document.getElementById('invitationModal');
+    const modalCustomSum = document.getElementById('custom_sum');
+    const modalDonateBtn = document.getElementById('donate');
+    const modalMoneyBtns = document.querySelectorAll('.moneyfff');
+
+    footerAmountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            footerAmountBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            footerInput.value = ''; 
+        });
+    });
+
+    footerInput.addEventListener('input', () => {
+        footerAmountBtns.forEach(b => b.classList.remove('active'));
+    });
+
+    footerHelpBtn.addEventListener('click', () => {
+        let finalValue = "";
+        const activeBtn = footerSection.querySelector('.amount_btn.active');
+
+  
+        if (footerInput.value.trim() !== "") {
+            finalValue = footerInput.value.trim();
+        } else if (activeBtn) {
+            finalValue = activeBtn.innerText.replace(/[^0-9]/g, '');
+        }
+
+        if (!finalValue || finalValue === "0") {
+            alert("Пожалуйста, выберите или введите сумму");
+            return;
+        }
+
+
+        openDonateModal(finalValue);
+    });
+
+    function openDonateModal(sum) {
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+
+
+        modalMoneyBtns.forEach(btn => btn.classList.remove('selected'));
+        modalCustomSum.value = '';
+
+        let matchFound = false;
+        modalMoneyBtns.forEach(btn => {
+            if (btn.innerText.includes(sum)) {
+                btn.classList.add('selected');
+                matchFound = true;
+            }
+        });
+
+        if (!matchFound) {
+            modalCustomSum.value = sum;
+        }
+
+        if (modalDonateBtn) {
+            modalDonateBtn.innerText = `Пожертвовать ${sum} сом`;
+        }
+    }
 });

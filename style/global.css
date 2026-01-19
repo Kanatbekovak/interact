@@ -369,7 +369,7 @@ header .head-mobile .head_link .range .round {
   cursor: pointer;
   transition: 0.3s;
 }
-.footer-section .help_money .money .amount_btn:hover {
+.footer-section .help_money .money .amount_btn.active {
   background: var(--blue);
   color: #fff;
   border-color: var(--blue);

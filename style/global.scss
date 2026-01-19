@@ -680,7 +680,7 @@ header {
                 cursor: pointer;
                 transition: 0.3s;
 
-                &:hover {
+                &.active {
                     background: var(--blue);
                     color: #fff;
                     border-color: var(--blue);}
