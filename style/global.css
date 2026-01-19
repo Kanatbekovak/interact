@@ -956,7 +956,6 @@ textarea {
 }
 .modal_voluntur .modal-content .close-btn {
   position: absolute;
-  top: 20px;
   right: 20px;
   width: 40px;
   height: 40px;

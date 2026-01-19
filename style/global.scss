@@ -1237,7 +1237,7 @@ textarea {
 
 
 .modal_voluntur {
-    display: none; // По умолчанию полностью удалена из видимости
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -1267,7 +1267,7 @@ textarea {
 
         .close-btn {
             position: absolute;
-            top: 20px;
+            // top: 20px;
             right: 20px;
             width: 40px;
             height: 40px;
