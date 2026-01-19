@@ -1237,7 +1237,7 @@ textarea {
 
 
 .modal_voluntur {
-    display: none; // Скрыто по умолчанию
+    display: none; // По умолчанию полностью удалена из видимости
     position: fixed;
     top: 0;
     left: 0;
@@ -1248,9 +1248,12 @@ textarea {
     backdrop-filter: blur(5px);
     overflow-y: auto;
     
-    // Центрирование контента
-    justify-content: center; 
-    align-items: flex-start;
+    // Когда модалка открыта, она становится флекс-контейнером
+    &.active {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
 
     .modal-content {
         background: #f5f5f5;
@@ -1263,26 +1266,25 @@ textarea {
         box-sizing: border-box;
 
         .close-btn {
-            position: absolute; 
-            top: 20px; // Добавил top, чтобы не прижималось к краю
+            position: absolute;
+            top: 20px;
             right: 20px;
-            width: 40px; 
-            height: 40px; 
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            display: flex; 
-            justify-content: center; 
+            display: flex;
+            justify-content: center;
             align-items: center;
-            background: #fff; 
-            border: 1px solid #2D50C4; 
+            background: #fff;
+            border: 1px solid #2D50C4;
             cursor: pointer;
-            z-index: 10;
         }
     }
 
     h1 {
         font-family: var(--second-family);
         font-weight: 700;
-        font-size: 80px;
+        font-size: clamp(32px, 8vw, 80px); // Адаптивный размер шрифта
         line-height: 90%;
         color: var(--royal-blue);
         margin-bottom: 56px;
@@ -1295,32 +1297,27 @@ textarea {
         width: 100%;
 
         .form-group {
-            flex: 1; // Все по умолчанию равны
+            flex: 1; 
             display: flex;
             flex-direction: column;
 
             label {
                 margin-bottom: 8px;
-                font-weight: 500;
+                // font-weight: bold;
             }
 
             input, textarea {
-                padding: 12px;
+                padding: 14px;
                 border: 1px solid #ccc;
                 border-radius: 8px;
                 font-size: 16px;
             }
         }
 
-        // ТЕПЕРЬ РАБОТАЕТ: name-field внутри input-row
+        // ИСПРАВЛЕНИЕ: теперь name-field внутри input-row
         .name-field {
-            flex: 2.06 !important; 
+            flex: 2.06; 
         }
-    }
-
-    // Эти поля тоже должны быть внутри структуры, если они в строках
-    .date-field, .gender-field {
-        flex: 1; 
     }
 
     .gender-switch {
@@ -1329,9 +1326,8 @@ textarea {
         padding: 4px;
         border-radius: 10px;
         height: 48px;
-        background: #fff;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
+        // background: #fff;
+        // border: 1px solid #ccc;
 
         .gender-btn {
             flex: 1;
@@ -1349,47 +1345,50 @@ textarea {
         }
     }
 
-    .tshirt-container { 
-        display: flex; 
-        gap: 12px; 
-        margin: 10px 0 30px 0; 
+    .tshirt-container {
+        display: flex;
+        gap: 12px;
+        margin: 10px 0 30px 0;
 
         .tshirt-box {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 8px; 
+            gap: 8px;
             margin-right: 15px;
 
             label {
                 cursor: pointer;
                 font-weight: bold;
-                color: #333;
                 margin: 0;
+            }
+            
+            input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                accent-color: #2D50C4;
             }
         }
     }
 
-    .modal-step-vol { 
-        display: none; 
-        
-        &.active { 
-            display: block; 
-        }
-
-        p { color: black; margin-bottom: 24px; }
+    .modal-step-vol {
+        display: none;
+        &.active { display: block; }
+        p { color: black; margin-bottom: 24px; font-size: 1.2rem; }
     }
 
     .btn-primary {
-        background: #2D50C4; 
-        color: #fff; 
+        background: #2D50C4;
+        color: #fff;
         border: none;
-        padding: 16px 40px; 
-        border-radius: 10px; 
-        cursor: pointer; 
+        padding: 16px 40px;
+        border-radius: 10px;
+        cursor: pointer;
         font-weight: bold;
+        transition: background 0.3s;
+        
+        &:hover { background: #1e3a96; }
     }
 }
-
 
 
 

@@ -938,6 +938,9 @@ textarea {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   overflow-y: auto;
+}
+.modal_voluntur.active {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
 }
@@ -964,12 +967,11 @@ textarea {
   background: #fff;
   border: 1px solid #2D50C4;
   cursor: pointer;
-  z-index: 10;
 }
 .modal_voluntur h1 {
   font-family: var(--second-family);
   font-weight: 700;
-  font-size: 80px;
+  font-size: clamp(32px, 8vw, 80px);
   line-height: 90%;
   color: var(--royal-blue);
   margin-bottom: 56px;
@@ -987,19 +989,15 @@ textarea {
 }
 .modal_voluntur .input-row .form-group label {
   margin-bottom: 8px;
-  font-weight: 500;
 }
 .modal_voluntur .input-row .form-group input, .modal_voluntur .input-row .form-group textarea {
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
 }
 .modal_voluntur .input-row .name-field {
-  flex: 2.06 !important;
-}
-.modal_voluntur .date-field, .modal_voluntur .gender-field {
-  flex: 1;
+  flex: 2.06;
 }
 .modal_voluntur .gender-switch {
   display: flex;
@@ -1007,9 +1005,6 @@ textarea {
   padding: 4px;
   border-radius: 10px;
   height: 48px;
-  background: #fff;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
 }
 .modal_voluntur .gender-switch .gender-btn {
   flex: 1;
@@ -1030,7 +1025,7 @@ textarea {
   margin: 10px 0 30px 0;
 }
 .modal_voluntur .tshirt-container .tshirt-box {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   margin-right: 15px;
@@ -1038,8 +1033,12 @@ textarea {
 .modal_voluntur .tshirt-container .tshirt-box label {
   cursor: pointer;
   font-weight: bold;
-  color: #333;
   margin: 0;
+}
+.modal_voluntur .tshirt-container .tshirt-box input[type=radio] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2D50C4;
 }
 .modal_voluntur .modal-step-vol {
   display: none;
@@ -1050,6 +1049,7 @@ textarea {
 .modal_voluntur .modal-step-vol p {
   color: black;
   margin-bottom: 24px;
+  font-size: 1.2rem;
 }
 .modal_voluntur .btn-primary {
   background: #2D50C4;
@@ -1059,4 +1059,8 @@ textarea {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  transition: background 0.3s;
+}
+.modal_voluntur .btn-primary:hover {
+  background: #1e3a96;
 }/*# sourceMappingURL=global.css.map */

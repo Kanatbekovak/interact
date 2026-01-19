@@ -99,47 +99,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const step2 = document.getElementById('step2Volun');
     const openVolunBtns = document.querySelectorAll('.want');
     const closeVolunBtn = document.getElementById('closeModalVolun');
+    const okeyVolunBtn = document.getElementById('okeyVolun');
+    const successBtn = document.getElementById('successVolun');
 
-    // 1. Открытие
-    openVolunBtns.forEach(btn => {
-        btn.onclick = (e) => {
-            e.preventDefault();
-            modalVolun.style.display = 'flex'; // Используем flex для SCSS центрирования
-            document.body.style.overflow = 'hidden';
-            // Сбрасываем шаги при новом открытии
-            step1.classList.add('active');
-            step2.classList.remove('active');
-        };
+    // Функция открытия
+    const openModal = (e) => {
+        e.preventDefault();
+        modalVolun.classList.add('active'); // В SCSS это включает display: flex
+        document.body.style.overflow = 'hidden';
+        // Сброс на 1 шаг при открытии
+        step1.classList.add('active');
+        step2.classList.remove('active');
+    };
+
+    // Функция закрытия
+    const closeModal = () => {
+        modalVolun.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Слушатели событий
+    openVolunBtns.forEach(btn => btn.addEventListener('click', openModal));
+    closeVolunBtn.addEventListener('click', closeModal);
+    okeyVolunBtn.addEventListener('click', closeModal);
+
+    // Закрытие по клику на фон
+    modalVolun.addEventListener('click', (e) => {
+        if (e.target === modalVolun) closeModal();
     });
 
-    // 2. Закрытие
-    const closeVolun = () => {
-        modalVolun.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    };
-
-    closeVolunBtn.onclick = closeVolun;
-    document.getElementById('okeyVolun').onclick = closeVolun;
-
-    // Закрытие по клику на темную область
-    modalVolun.onclick = (e) => {
-        if (e.target === modalVolun) closeVolun();
-    };
-
-    // 3. Переключение пола
+    // Переключение пола
     const genderBtns = document.querySelectorAll('.gender-btn');
     genderBtns.forEach(btn => {
-        btn.onclick = (e) => {
-            e.preventDefault(); // Чтобы кнопка не срабатывала как submit
-            const parent = btn.parentElement;
-            parent.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+        btn.addEventListener('click', () => {
+            genderBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-        };
+        });
     });
 
-    // 4. Переход к успеху
-    document.getElementById('successVolun').onclick = () => {
+    // Переход ко второму шагу
+    successBtn.addEventListener('click', () => {
         step1.classList.remove('active');
         step2.classList.add('active');
-    };
+    });
 });
