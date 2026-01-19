@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const customSum = document.getElementById('custom_sum');
     const resultsBtn = document.getElementById('.results_button');
 
-    // 1. ОТКРЫТИЕ ПРИ НАВЕДЕНИИ
+  
     openBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             modal.style.display = 'block';
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 
-    // 2. ЗАКРЫТИЕ
+
     const closeModal = () => {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('okey').onclick = closeModal;
     window.onclick = (e) => { if (e.target == modal) closeModal(); };
 
-    // 3. ЛОГИКА СУММ
+
     moneyBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             moneyBtns.forEach(b => b.classList.remove('selected'));
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         donateBtn.innerText = `Пожертвовать ${customSum.value || 0} сом`;
     };
 
-    // 4. ПЕРЕКЛЮЧЕНИЕ ШАГОВ
+  
     donateBtn.onclick = () => {
         if(!document.getElementById('oferta').checked) return alert("Примите оферту");
         
@@ -77,16 +77,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Находим контейнер с кнопками (Ежемесячно / Разово)
     const typeButtons = document.querySelectorAll('.button_first_question button');
 
     typeButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-            // 1. Убираем класс active у всех кнопок в этом блоке
             typeButtons.forEach(b => b.classList.remove('active'));
-            
-            // 2. Добавляем класс active той кнопке, на которую нажали
+
             this.classList.add('active');
         });
     });
+});
+
+
+
+
+///////////////////
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modalVolun = document.getElementById('invitationModalVoluntur');
+    const openVolunBtns = document.querySelectorAll('.want'); // Кнопки "Присоединиться"
+    const closeVolunBtn = document.getElementById('closeModalVolun');
+
+    // 1. Открытие
+    openVolunBtns.forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            modalVolun.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        };
+    });
+
+    // 2. Закрытие
+    const closeVolun = () => {
+        modalVolun.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+    closeVolunBtn.onclick = closeVolun;
+    document.getElementById('okeyVolun').onclick = closeVolun;
+
+    // 3. Переключение пола (Мужской/Женский)
+    const genderBtns = document.querySelectorAll('.gender-btn');
+    genderBtns.forEach(btn => {
+        btn.onclick = () => {
+            genderBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        };
+    });
+
+    // 4. Переход к успеху
+    document.getElementById('successVolun').onclick = () => {
+        document.getElementById('step1Volun').classList.remove('active');
+        document.getElementById('step2Volun').classList.add('active');
+    };
 });
