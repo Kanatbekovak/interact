@@ -13,7 +13,7 @@
 </style>
 <body>
     
-        <header>
+        <header style="position: relative;">
             <div class="container head">
                 <div class="head_list">
                     <div class="logotype">
@@ -21,6 +21,15 @@
                             <img src="./images_main/logotype.png" alt="interact">
                         </a>
                     </div>
+
+                    <!-- <div class="search-header-inline" id="searchBar">
+    <form class="search-form" id="searchForm">
+        <input type="text" placeholder="Что вы ищете?" id="searchInput" autocomplete="off">
+        <button type="submit" class="search-find-btn">Найти</button>
+    </form>
+    <button class="close-search-btn" type="button">&times;</button>
+</div> -->
+
                     <div class="menu">
                         <nav>
                             <ul class="menu_list">
@@ -44,6 +53,19 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="search-header-inline" id="searchBar">
+        <div class="container search-container-inner">
+            <img src="./images_main/logotype.png" alt="logo" class="search-logo">
+            <form class="search-form" id="searchForm">
+                <input type="text" placeholder="Благотворительность" id="searchInput" autocomplete="off">
+                <button type="submit" class="search-find-btn">Найти</button>
+            </form>
+            <button class="close-search-btn" type="button">&times;</button>
+        </div>
+    </div> 
+
 
             <div class=" container head-mobile">
                 <div class="head_list">
@@ -772,6 +794,25 @@
             </div>
         </div> 
  
+
+        <div class="burger-overlay" id="burgerOverlay"></div>
+
+<div class="burger-menu-right" id="burgerMenu">
+    <div class="burger-header">
+        <img src="./images_main/logotype.png" alt="logo">
+        <button class="close-burger">&times;</button>
+    </div>
+    <nav class="burger-nav">
+        <a href="#">О нас</a>
+        <a href="#">Проекты</a>
+        <a href="#">Спонсорство</a>
+        <a href="#">Волонтёрство</a>
+        <hr>
+        <a href="#" class="account-link">Личный кабинет</a>
+    </nav>
+</div>
+
+
 </body>
 
     <script src="./javascript/main.js"></script>
