@@ -157,7 +157,7 @@ main {
 header {
   transition: 0.3s;
   background: var(--black);
-  padding: 24px;
+  padding: 24px 48px;
   width: 100%;
 }
 @media (max-width: 485px) {
@@ -165,72 +165,128 @@ header {
     padding: 32px 16px;
   }
 }
-header .search-header-inline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff !important;
-  z-index: 9999;
+header .search-header, header .search-header-mobile {
   display: none;
+  width: 100%;
   align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-header .search-header-inline.active {
+header .search-header .head_list, header .search-header-mobile .head_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+header .search-header .head_list img, header .search-header-mobile .head_list img {
+  border-radius: 80px;
+  width: 80px;
+  height: 80px;
+}
+@media (max-width: 468px) {
+  header .search-header .head_list img, header .search-header-mobile .head_list img {
+    width: 40px;
+    height: 40px;
+  }
+}
+header .search-header.active, header .search-header-mobile.active {
   display: flex !important;
 }
-header .search-header-inline .search-container-inner {
+header .search-form-full {
+  width: 840px;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 16px 20px;
+  width: 600px;
+  height: 56px;
+  gap: 10px;
+}
+header .search-form-full .input-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.5);
+}
+header .search-form-full input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: var(--second-family);
+  font-size: 18px;
+  color: var(--black);
+}
+header .search-submit {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 16px;
+  padding: 16px 20px;
+  width: 216px;
+  height: 56px;
+}
+header .search-submit:hover {
+  opacity: 0.9;
+}
+header .search-close {
+  background: var(--white);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  margin-left: 20px;
 }
-header .search-header-inline .search-form {
-  flex: 0.8;
+header .head_link {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  background: #f5f5f5;
-  border-radius: 8px;
-  padding: 5px 15px;
+  gap: 48px;
 }
-header .search-header-inline .search-form input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  padding: 10px;
-  font-size: 16px;
-  outline: none;
-  width: 100%;
-}
-header .search-header-inline .search-form .search-find-btn {
-  background: #2D50C4;
-  color: #fff;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-header .search-header-inline .close-search-btn {
-  background: none;
-  border: none;
-  font-size: 35px;
-  cursor: pointer;
-  color: #2D50C4;
-  line-height: 1;
-}
-@media (max-width: 576px) {
-  header .search-header-inline .search-form {
-    flex: 1;
+@media (max-width: 485px) {
+  header .head_link {
+    gap: 83px;
   }
-  header .search-header-inline .search-find-btn {
-    padding: 8px 10px;
-    font-size: 14px;
-  }
+}
+header .head_link .my_help {
+  border-radius: 16px;
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #0041d5 0%, #0371c1 50%, #5ab2f2 100%);
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 167%;
+  color: var(--white);
+  border: none;
+}
+header .head_link .my_help:hover {
+  transform: scale(1.05);
+}
+header .head_link .range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+header .head_link .range .round {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header .head {
   display: flex;

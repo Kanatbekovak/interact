@@ -13,7 +13,7 @@
 </style>
 <body>
     
-        <header style="position: relative;">
+        <header>
             <div class="container head">
                 <div class="head_list">
                     <div class="logotype">
@@ -21,15 +21,6 @@
                             <img src="./images_main/logotype.png" alt="interact">
                         </a>
                     </div>
-
-                    <!-- <div class="search-header-inline" id="searchBar">
-    <form class="search-form" id="searchForm">
-        <input type="text" placeholder="Что вы ищете?" id="searchInput" autocomplete="off">
-        <button type="submit" class="search-find-btn">Найти</button>
-    </form>
-    <button class="close-search-btn" type="button">&times;</button>
-</div> -->
-
                     <div class="menu">
                         <nav>
                             <ul class="menu_list">
@@ -54,19 +45,6 @@
                 </div>
             </div>
 
-
-            <div class="search-header-inline" id="searchBar">
-        <div class="container search-container-inner">
-            <img src="./images_main/logotype.png" alt="logo" class="search-logo">
-            <form class="search-form" id="searchForm">
-                <input type="text" placeholder="Благотворительность" id="searchInput" autocomplete="off">
-                <button type="submit" class="search-find-btn">Найти</button>
-            </form>
-            <button class="close-search-btn" type="button">&times;</button>
-        </div>
-    </div> 
-
-
             <div class=" container head-mobile">
                 <div class="head_list">
                     <div class="logotype">
@@ -87,39 +65,80 @@
                     </div>
                 </div>
            </div>
+
+            <div class="container search-header" id="searchBar">
+                <div class="head_list">
+                    <div class="logotype">
+                        <a href="./index.html">
+                            <img src="./images_main/logotype.png" alt="interact">
+                        </a>
+                    </div>
+                    <form class="search-form-full">
+                        <div class="input-wrapper">
+                            <span class="mingcute--search-line"></span> <input type="text" placeholder="Благотворительность" id="searchInput" autocomplete="off">
+                        </div>
+                        <button class="search-close" id="closeSearch" type="button">&times;</button>
+                    </form>
+                    <button type="submit" class="search-submit">Найти</button>
+                </div>
+                <div class="head_link">
+                    <button class="my_help">Хочу помочь</button>
+                    <div class="range">
+                        <div class="round">
+                            <span class="mingcute--search-line"></span>
+                        </div>
+                        <div class="round">
+                            <span class="mdi--user"></span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="container search-header-mobile" id="searchBar-mobile">
+                <div class="head_list">
+                    <form class="search-form-full">
+                        <div class="input-wrapper">
+                            <span class="mingcute--search-line"></span> <input type="text" placeholder="Благотворительность" id="searchInput" autocomplete="off">
+                        </div>
+                        <button class="search-close" id="closeSearch" type="button">&times;</button>
+                    </form>
+                    <button type="submit" class="search-submit">Найти</button>
+                </div>
+            </div>
+
         </header>
 
-    <section class="hero-section">
-        <div class="slider-container">
-            <div class="slider-track">
-                <div class="slide"><img src="./images_main/main.png" alt="main"></div>
-                <div class="slide"><img src="./images_main/main.png" alt="main"></div>
-                <div class="slide"><img src="./images_main/main.png" alt="main"></div>
-            </div>
-        </div>    
+        <section class="hero-section">
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slide"><img src="./images_main/main.png" alt="main"></div>
+                    <div class="slide"><img src="./images_main/main.png" alt="main"></div>
+                    <div class="slide"><img src="./images_main/main.png" alt="main"></div>
+                </div>
+            </div>    
 
-        <div class="hero_overlay"></div>
+            <div class="hero_overlay"></div>
 
-        <div class="container hero_content_fixed">
-            <div class="open_text">
-                <h1>ОТКРЫТ НАБОР</h1>
-                <h2>НА 2025 - 2026 ВОЛОНТЁРСКИЙ ГОД</h2>
-                <button class="want">Присоединиться</button>
+            <div class="container hero_content_fixed">
+                <div class="open_text">
+                    <h1>ОТКРЫТ НАБОР</h1>
+                    <h2>НА 2025 - 2026 ВОЛОНТЁРСКИЙ ГОД</h2>
+                    <button class="want">Присоединиться</button>
+                </div>
+                
+                <div class="button_slesh">
+                    <button class="prev_btn"><span class="line-md--chevron-left"></span></button>
+                        <div class="slesh_link">
+                            <div class="slesh_list"></div>
+                            <div class="slesh_list"></div>
+                            <div class="slesh_list"></div>
+                            <div class="slesh_list"></div>
+                            <div class="slesh_list"></div>
+                        </div>
+                    <button class="next_btn"><span class="line-md--chevron-right"></span></button>
+                </div>
             </div>
-            
-            <div class="button_slesh">
-                <button class="prev_btn"><span class="line-md--chevron-left"></span></button>
-                    <div class="slesh_link">
-                        <div class="slesh_list"></div>
-                        <div class="slesh_list"></div>
-                        <div class="slesh_list"></div>
-                        <div class="slesh_list"></div>
-                        <div class="slesh_list"></div>
-                    </div>
-                <button class="next_btn"><span class="line-md--chevron-right"></span></button>
-            </div>
-        </div>
-    </section>
+        </section>
    
 
         <section class="result-section">

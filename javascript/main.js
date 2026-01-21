@@ -183,35 +183,84 @@
     }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchBar = document.getElementById('searchBar');
-    const searchInput = document.getElementById('searchInput');
-    const closeBtn = document.querySelector('.close-search-btn');
+    document.addEventListener('DOMContentLoaded', () => {
+    const openBtns = document.querySelectorAll('.mingcute--search-line');
+    const closeBtns = document.querySelectorAll('.search-close');
     
-    // Находим все лупы (в десктопе и мобилке)
-    const allSearchIcons = document.querySelectorAll('.mingcute--search-line');
+    const headMain = document.querySelector('.head');
+    const headMob = document.querySelector('.head-mobile');
+    const searchBar = document.getElementById('searchBar');
+    const searchBarMob = document.getElementById('searchBar-mobile');
 
-    allSearchIcons.forEach(icon => {
-        // Находим ближайший кликабельный родитель (div.round)
-        const trigger = icon.closest('.round');
+    // Открытие
+    openSearchBtns = (e) => {
+        const isMobile = window.innerWidth <= 1200;
         
-        if (trigger) {
-            trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // Чтобы клик не ушел дальше
-                searchBar.classList.add('active');
-                
-                // Фокус на инпут, чтобы сразу печатать
-                setTimeout(() => searchInput.focus(), 150);
-            });
+        if (!isMobile) {
+            headMain.style.display = 'none';
+            searchBar.classList.add('active');
+            searchBar.querySelector('input').focus();
+        } else {
+            headMob.style.setProperty('display', 'none', 'important');
+            searchBarMob.classList.add('active');
+            searchBarMob.querySelector('input').focus();
         }
+    };
+
+    openBtns.forEach(btn => {
+        const parentRound = btn.closest('.round');
+        if (parentRound) parentRound.onclick = openSearchBtns;
     });
 
     // Закрытие
-    if (closeBtn) {
-        closeBtn.onclick = (e) => {
-            e.preventDefault();
+    closeBtns.forEach(btn => {
+        btn.onclick = () => {
             searchBar.classList.remove('active');
+            searchBarMob.classList.remove('active');
+            headMain.style.display = 'flex';
+            headMob.style.display = ''; // Возвращает дефолт из CSS
         };
-    }
+    });
 });
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Кнопки открытия (лупы)
+//     const openSearchBtns = document.querySelectorAll('.mingcute--search-line');
+//     // Кнопки закрытия (крестики)
+//     const closeSearchBtns = document.querySelectorAll('.search-close');
+
+//     // Основные контейнеры
+//     const headDesktop = document.querySelector('.head');
+//     const headMobile = document.querySelector('.head-mobile');
+//     const searchDesktop = document.getElementById('searchBar');
+//     const searchMobile = document.getElementById('searchBar-mobile');
+
+//     // Функция ОТКРЫТИЯ поиска
+//     openSearchBtns.forEach(btn => {
+//         btn.closest('.round').onclick = function() {
+//             if (window.innerWidth > 1200) {
+//                 headDesktop.style.display = 'none';
+//                 searchDesktop.classList.add('active');
+//                 searchDesktop.querySelector('input').focus();
+//             } else {
+//                 headMobile.style.setProperty('display', 'none', 'important');
+//                 searchMobile.classList.add('active');
+//                 searchMobile.querySelector('input').focus();
+//             }
+//         };
+//     });
+
+//     // Функция ЗАКРЫТИЯ поиска
+//     closeSearchBtns.forEach(btn => {
+//         btn.onclick = function() {
+//             // Убираем активный поиск
+//             searchDesktop.classList.remove('active');
+//             searchMobile.classList.remove('active');
+            
+//             // Возвращаем видимость обычным хедерам (сброс инлайновых стилей)
+//             headDesktop.style.display = '';
+//             headMobile.style.display = '';
+//         };
+//     });
+// });
