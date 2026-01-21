@@ -8,7 +8,7 @@
 body {
     background: var(--black);
     width: 100%;
-    overflow-x: hidden; /* Чтобы не было горизонтальной полосы прокрутки */
+    overflow-x: hidden;
 }
 
 nav,
@@ -87,7 +87,7 @@ nav a.active::after {
 }
 
 
-/* Общий стиль полоски для всех состояний */
+
 nav a:hover::after, 
 nav a:active::after, 
 nav a.active::after {
@@ -97,7 +97,7 @@ nav a.active::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--blue); /* Используем голубой цвет */
+    background: var(--blue);
     transition: 0.3s;
 }
 
@@ -131,9 +131,9 @@ p {
 }
 
 .container {
-    max-width: 1860px; /* Ширина сайта из Figma */
-    margin: 0 auto;    /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
-    padding: 0 20px;   /* Чтобы на мобилках текст не касался краев */
+    max-width: 1860px;
+    margin: 0 auto;   
+    padding: 0 20px;   
     width: 100%;
 }
 
@@ -143,8 +143,8 @@ main {
     background: linear-gradient(90deg, #031a65 0%, rgba(3, 26, 101, 0) 100%);
 }
 .menu_list a, .logo, .my_help {
-    flex-shrink: 0; /* Текст больше никогда не сожмется и не перенесется */
-    white-space: nowrap; /* Дополнительная страховка: текст всегда в одну строку */
+    flex-shrink: 0; 
+    white-space: nowrap; 
 }
 
 
@@ -291,326 +291,6 @@ header {
     }
 }
 
-
-
-
-
-// .footer-section {
-//     position: relative;
-//     padding-top: 60px;
-//     background: #000;
-
-//     // БЕЛАЯ ПАНЕЛЬ ПОЖЕРТВОВАНИЙ
-//     .help_money {
-//         position: relative;
-//         z-index: 5; // Поднимаем выше синего блока
-//         max-width: 1362px;
-//         margin: 0 auto -80px; // Сдвигаем вниз, чтобы нависала на синий блок
-//         background: #fff;
-//         padding: 40px 64px;
-//         border-radius: 16px;
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-
-//         @media (max-width: 1200px) {
-//             padding: 30px;
-//             width: 95%;
-//         }
-
-//         @media (max-width: 992px) {
-//             flex-direction: column;
-//             gap: 24px;
-//             margin-bottom: -50px;
-//         }
-
-//         .money {
-//             display: flex;
-//             gap: 20px;
-//             align-items: center;
-//             flex-wrap: wrap;
-
-//             .amount_btn {
-//                 padding: 12px 24px;
-//                 border: 1px solid #ccc;
-//                 background: var(--almost-white);
-//                 border-radius: 12px;
-//                 font-size: 16px;
-//                 font-family: var(--font-family);
-//                 cursor: pointer;
-//                 transition: 0.3s;
-
-//                 &:hover { background: #f0f0f0; }
-
-//                 &.active {
-//                     background: var(--blue);
-//                     color: #fff;
-//                     border-color: var(--blue);
-//                 }
-//             }
-
-//             input {
-//                 border: 1px solid var(--royal-blue);
-//                 border-radius: 12px;
-//                 padding: 10px 20px;
-//                 width: 200px;
-//                 height: 50px;
-//                 background: var(--almost-white);
-//                 font-family: var(--font-family);
-//                 outline: none;
-//             }
-//         }
-
-//         .button_help {
-//             background: var(--blue);
-//             color: #fff;
-//             border: none;
-//             font-weight: 600;
-//             font-size: 18px;
-//             cursor: pointer;
-//             border-radius: 12px;
-//             padding: 15px 30px;
-//             width: 250px;
-//             transition: 0.3s ease;
-
-//             &:hover {
-//                 transform: translateY(-3px);
-//                 box-shadow: 0 5px 15px rgba(0, 71, 255, 0.3);
-//             }
-//         }
-//     }
-
-//     // СИНИЙ ОСНОВНОЙ БЛОК
-//     .footer-main-bg {
-//         background: #001a4d;
-//         padding: 160px 0 60px; // Увеличил верхний паддинг из-за нависающей панели
-//         color: #fff;
-//         border-radius: 16px;
-//         max-width: 1824px;
-//         margin: 0 auto;
-
-//         .footer {
-//             max-width: 1696px;
-//             margin: 0 auto;
-//             display: flex;
-//             justify-content: space-between;
-//             align-items: stretch; // Чтобы разделительные линии были одной высоты
-//             gap: 24px;
-//             padding: 0 40px;
-
-//             @media (max-width: 1100px) {
-//                 flex-wrap: wrap;
-//                 gap: 40px;
-//             }
-
-//             // Общий стиль для колонок с линиями
-//             .info_interact, .menu, .diagram_box {
-//                 border-right: 1px solid rgba(255, 255, 255, 0.2);
-//                 padding-right: 32px;
-//             }
-
-//             .info_interact {
-//                 flex: 1;
-//                 min-width: 280px;
-                
-//                 .logotype img { 
-//                     width: 100px; 
-//                     margin-bottom: 24px; 
-//                 }
-//                 p { 
-//                     font-family: var(--font-family);
-//                     font-size: 16px;
-//                     line-height: 1.5;
-//                     color: var(--white);
-//                     opacity: 0.9;
-//                 }
-//                 .recvizite {
-//                     margin-top: 40px;
-//                     display: flex;
-//                     flex-direction: column;
-//                     gap: 12px;
-                    
-//                     p { font-size: 12px; opacity: 0.7; }
-//                     a { 
-//                         font-size: 12px;
-//                         color: var(--light-blue); 
-//                         text-decoration: none;
-//                         &:hover { text-decoration: underline; }
-//                     }
-//                     .bank-details { color: var(--medium-grey); font-size: 11px; }
-//                 }
-//             }
-
-//             .menu {
-//                 flex: 0 1 200px;
-//                 display: flex;
-//                 flex-direction: column;
-//                 justify-content: center;
-
-//                 .menu_list {
-//                     display: flex;
-//                     flex-direction: column; 
-//                     gap: 30px; // Чуть уменьшил для баланса
-//                     padding: 0;
-
-//                     a { 
-//                         color: var(--white); 
-//                         text-decoration: none; 
-//                         font-size: 20px; 
-//                         font-weight: 500;
-//                         font-family: var(--second-family);
-//                         transition: 0.3s;
-
-//                         &:hover {
-//                             color: var(--light-blue);
-//                             padding-left: 8px;
-//                         }
-//                     }
-//                 }
-
-//                 @media (max-width: 1100px) {
-//                     border-right: none;
-//                     flex: 1;
-//                     align-items: center;
-//                 }
-//             }
-
-//             .procent_help {
-//                 flex: 3;
-//                 display: flex;
-//                 // gap: 40px;
-
-//                 @media (max-width: 1400px) {
-//                     flex-direction: column;
-//                 }
-
-//                 .diagram_box {
-//                     display: flex;
-//                     align-items: center;
-//                     gap: 32px;
-//                     flex: 1;
-                    
-//                     .diagram-wrapper {
-//                         position: relative;
-//                         width: 120px;
-//                         height: 120px;
-//                         display: flex;
-//                         align-items: center;
-//                         justify-content: center;
-
-//                         .pie-chart {
-//                             position: absolute;
-//                             width: 100%;
-//                             height: 100%;
-//                             background: conic-gradient(var(--blue) 75%, #5e92ff 0);
-//                             border-radius: 50%;
-//                         }
-//                         .pie-label { 
-//                             position: relative;
-//                             z-index: 2;
-//                             font-size: 24px; 
-//                             font-weight: bold; 
-//                         }
-//                     }
-
-//                     .text_procent {
-//                         p {
-//                             font-family: var(--font-family);
-//                             font-size: 22px;
-//                             margin-bottom: 15px;
-//                         }
-//                         .prosent_list p { 
-//                             font-size: 15px;
-//                             opacity: 0.8;
-//                             line-height: 1.4;
-//                             margin-bottom: 8px;
-//                         }
-//                     }
-//                 }
-
-//                 .contact {
-//                     flex: 1;
-//                     display: flex;
-//                     flex-direction: column;
-//                     justify-content: space-between;
-//                     align-items: flex-end;
-
-//                     @media (max-width: 1400px) {
-//                         align-items: flex-start;
-//                     }
-
-//                     .contact_text {
-//                         display: flex;
-//                         flex-direction: column;
-//                         gap: 24px;
-//                         p {
-//                             font-weight: 400;
-//                             font-size: 32px;
-//                             line-height: 100%;
-//                         }
-//                         .num {
-//                             gap:16px;
-//                             p {
-//                                 font-weight: 400;
-//                                 font-size: 24px;
-//                                 line-height: 133%;
-//                             }
-//                         }
-//                     }
-                    
-//                     .social-row { 
-//                         display: flex; 
-//                         gap: 15px; 
-//                         margin: 20px 0; 
-//                     }
-
-//                     .social_media {
-//                         width: 48px; 
-//                         height: 48px; 
-//                         border-radius: 50%; 
-//                         background: var(--white);
-//                         border: none; 
-//                         cursor: pointer;
-//                         transition: 0.3s;
-//                         &:hover { transform: scale(1.1); background: var(--light-blue); }
-//                     }
-
-//                     .connection {
-//                         display: flex;
-//                         width: 100%;
-//                         max-width: 400px;
-                        
-//                         input {
-//                             flex: 1;
-//                             border: 1px solid var(--royal-blue);
-//                             border-radius: 12px; 
-//                             padding: 0 20px;
-//                             height: 56px;
-//                             background: var(--almost-white);
-//                             outline: none;
-//                         }
-//                         .subscribe {
-//                             height: 56px;
-//                             border-radius:12px; 
-//                             padding: 0 25px;
-//                             background: var(--blue);
-//                             color: var(--white);
-//                             font-family: var(--second-family);
-//                             font-weight: 700;
-//                             font-size: 18px;
-//                             border: none;
-//                             cursor: pointer;
-//                             transition: 0.3s;
-
-//                             &:hover { background: #0036cc; }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
 
 
 .footer-section {
@@ -1018,6 +698,9 @@ header {
     }
 }
 
+
+
+
 .modal {
     display: none;
     position: fixed;
@@ -1130,6 +813,117 @@ header {
             }
         }
     }
+
+
+    @media (max-width: 1250px) {
+        .modal-content {
+            width: 95%;
+            margin: 20px auto;
+            padding: 30px 20px;
+            border-radius: 12px;
+            h1 {
+                font-size: 60px;
+            }
+        }
+    }
+
+
+    @media (max-width: 480px) {
+        .modal-content {
+            padding: 40px 16px 24px;
+            
+            h1 {
+                font-size: 40px !important; 
+                line-height: 1.1;
+                margin-bottom: 20px;
+            }
+
+            .close-btn {
+                top: 10px;
+                right: 10px;
+                width: 30px;
+                height: 30px;
+        
+                
+                span {
+                    font-size: 18px;
+                }
+            }
+
+       
+            .button_first_question {
+                margin-top: 20px;
+                gap: 5px;
+                
+                button {
+                    padding: 10px 5px;
+                    font-size: 14px;
+                }
+            }
+
+            
+            .form-group {
+                .sum_form {
+                    grid-template-columns: repeat(2, 1fr); 
+                    gap: 10px;
+
+                    .moneyfff {
+                        padding: 14px 5px;
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    #custom_sum {
+                        grid-column: span 2;
+                        height: 50px;
+                    }
+                }
+            }
+
+            .oferta-container {
+                align-items: flex-start; 
+                gap: 10px;
+                
+                label, a {
+                    font-size: 13px;
+                    line-height: 1.4;
+                }
+
+                .checkbox-wrapper {
+                    flex-shrink: 0; 
+                    margin-top: 2px;
+                }
+            }
+
+           
+            .btn-primary {
+                width: 100% !important;
+                max-width: 100%;
+                height: 56px;
+                font-size: 16px;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        textarea {
+            font-size: 16px !important; 
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+
+        .input-row {
+            flex-direction: column;
+            gap: 0; 
+        }
+    }
+
 }
 
 
@@ -1236,6 +1030,10 @@ textarea {
 
 
 
+//////////////////////
+
+
+
 .modal_voluntur {
     display: none;
     position: fixed;
@@ -1247,8 +1045,7 @@ textarea {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     overflow-y: auto;
-    
-    // Когда модалка открыта, она становится флекс-контейнером
+ 
     &.active {
         display: flex;
         justify-content: center;
@@ -1284,7 +1081,7 @@ textarea {
     h1 {
         font-family: var(--second-family);
         font-weight: 700;
-        font-size: clamp(32px, 8vw, 80px); // Адаптивный размер шрифта
+        font-size: clamp(32px, 8vw, 80px);
         line-height: 90%;
         color: var(--royal-blue);
         margin-bottom: 56px;
@@ -1314,7 +1111,6 @@ textarea {
             }
         }
 
-        // ИСПРАВЛЕНИЕ: теперь name-field внутри input-row
         .name-field {
             flex: 2.06; 
         }
@@ -1387,6 +1183,101 @@ textarea {
         transition: background 0.3s;
         
         &:hover { background: #1e3a96; }
+    }
+
+
+    @media (max-width: 780px) {
+        .modal-content {
+            padding: 30px 20px;
+            margin: 20px auto;
+            width: 92%;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 32px; 
+            line-height: 100%;
+        }
+
+        .input-row {
+            flex-direction: column; 
+            gap: 15px;
+            margin-bottom: 15px;
+
+            .name-field {
+                flex: none; 
+            }
+        }
+
+        .gender-switch {
+            height: auto;
+            flex-direction: row; 
+            
+            .gender-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+
+        .tshirt-container {
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+
+            .tshirt-box {
+                margin-right: 5px;
+                font-size: 14px;
+            }
+        }
+
+        .btn-primary {
+            width: 100%; 
+            padding: 18px;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            top: 15px; 
+            right: 15px;
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+
+    @media (max-width: 400px) {
+    .modal-content {
+        padding: 40px 16px 24px; 
+        
+        .close-btn {
+            // top: 12px;
+            right: 21px;
+            width: 30px;  
+            height: 30px;
+            border-width: 1px; 
+            
+          
+            font-size: 18px; 
+            
+            
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+
+    h1 {
+        font-size: 26px; 
+        margin-bottom: 24px;
+        line-height: 1.1;
+    }
+    
+
+    input, textarea {
+        height: 44px; 
+        font-size: 16px !important; 
+    }
     }
 }
 

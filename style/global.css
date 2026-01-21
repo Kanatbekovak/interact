@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,7 @@
 body {
   background: var(--black);
   width: 100%;
-  overflow-x: hidden; /* Чтобы не было горизонтальной полосы прокрутки */
+  overflow-x: hidden;
 }
 
 nav,
@@ -92,7 +91,6 @@ nav a.active::after {
   background: var(--gold);
 }
 
-/* Общий стиль полоски для всех состояний */
 nav a:hover::after,
 nav a:active::after,
 nav a.active::after {
@@ -102,7 +100,7 @@ nav a.active::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--blue); /* Используем голубой цвет */
+  background: var(--blue);
   transition: 0.3s;
 }
 
@@ -139,9 +137,9 @@ p {
 }
 
 .container {
-  max-width: 1860px; /* Ширина сайта из Figma */
-  margin: 0 auto; /* Центрирует сам контейнер (0 сверху/снизу, авто по бокам) */
-  padding: 0 20px; /* Чтобы на мобилках текст не касался краев */
+  max-width: 1860px;
+  margin: 0 auto;
+  padding: 0 20px;
   width: 100%;
 }
 
@@ -152,8 +150,8 @@ main {
 }
 
 .menu_list a, .logo, .my_help {
-  flex-shrink: 0; /* Текст больше никогда не сожмется и не перенесется */
-  white-space: nowrap; /* Дополнительная страховка: текст всегда в одну строку */
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 header {
@@ -801,6 +799,92 @@ header .head-mobile .head_link .range .round {
   margin-top: 0;
   height: 100%;
 }
+@media (max-width: 1250px) {
+  .modal .modal-content {
+    width: 95%;
+    margin: 20px auto;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  .modal .modal-content h1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 480px) {
+  .modal .modal-content {
+    padding: 40px 16px 24px;
+  }
+  .modal .modal-content h1 {
+    font-size: 40px !important;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .modal .modal-content .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .modal .modal-content .close-btn span {
+    font-size: 18px;
+  }
+  .modal .modal-content .button_first_question {
+    margin-top: 20px;
+    gap: 5px;
+  }
+  .modal .modal-content .button_first_question button {
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  .modal .modal-content .form-group .sum_form {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .modal .modal-content .form-group .sum_form .moneyfff {
+    padding: 14px 5px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal .modal-content .form-group .sum_form #custom_sum {
+    grid-column: span 2;
+    height: 50px;
+  }
+  .modal .modal-content .oferta-container {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .modal .modal-content .oferta-container label, .modal .modal-content .oferta-container a {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .modal .modal-content .oferta-container .checkbox-wrapper {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .modal .modal-content .btn-primary {
+    width: 100% !important;
+    max-width: 100%;
+    height: 56px;
+    font-size: 16px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal input[type=text],
+  .modal input[type=email],
+  .modal textarea {
+    font-size: 16px !important;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+  .modal .input-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
 
 input[type=text], input[type=email], textarea {
   width: 100%;
@@ -1062,4 +1146,77 @@ textarea {
 }
 .modal_voluntur .btn-primary:hover {
   background: #1e3a96;
+}
+@media (max-width: 780px) {
+  .modal_voluntur .modal-content {
+    padding: 30px 20px;
+    margin: 20px auto;
+    width: 92%;
+  }
+  .modal_voluntur h1 {
+    margin-bottom: 30px;
+    font-size: 32px;
+    line-height: 100%;
+  }
+  .modal_voluntur .input-row {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .modal_voluntur .input-row .name-field {
+    flex: none;
+  }
+  .modal_voluntur .gender-switch {
+    height: auto;
+    flex-direction: row;
+  }
+  .modal_voluntur .gender-switch .gender-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .modal_voluntur .tshirt-container {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  .modal_voluntur .tshirt-container .tshirt-box {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .modal_voluntur .btn-primary {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+  }
+  .modal_voluntur .close-btn {
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (max-width: 400px) {
+  .modal_voluntur .modal-content {
+    padding: 40px 16px 24px;
+  }
+  .modal_voluntur .modal-content .close-btn {
+    right: 21px;
+    width: 30px;
+    height: 30px;
+    border-width: 1px;
+    font-size: 18px;
+  }
+  .modal_voluntur .modal-content .close-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .modal_voluntur h1 {
+    font-size: 26px;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+  .modal_voluntur input, .modal_voluntur textarea {
+    height: 44px;
+    font-size: 16px !important;
+  }
 }/*# sourceMappingURL=global.css.map */
