@@ -7,7 +7,6 @@
 body {
   background: var(--black);
   width: 100%;
-  overflow-x: hidden;
 }
 
 nav,
@@ -1548,12 +1547,13 @@ textarea {
 
 .search-results-page {
   position: fixed;
-  inset: 0;
-  background-color: #0d1117;
-  color: #ffffff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 10000;
   overflow-y: auto;
-  font-family: "Inter", sans-serif;
+  background-color: #0d1117;
   display: none;
 }
 .search-results-page.active {
@@ -1565,6 +1565,11 @@ textarea {
   display: flex;
   flex-direction: column;
   background: var(--black);
+}
+.search-results-page .container-rez {
+  max-width: 1362px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .search-results-page .search-results-main {
   flex: 1;

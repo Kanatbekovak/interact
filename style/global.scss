@@ -8,7 +8,7 @@
 body {
     background: var(--black);
     width: 100%;
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 
 nav,
@@ -1647,7 +1647,7 @@ $blue: #2D50C4;
 
 
 
-// Цветовая палитра с макета
+
 $dark-bg: #0d1117;
 $accent-blue: #3b82f6;
 $text-main: #ffffff;
@@ -1656,14 +1656,14 @@ $border-light: rgba(255, 255, 255, 0.1);
 
 .search-results-page {
     position: fixed;
-    inset: 0;
-    background-color: $dark-bg;
-    color: $text-main;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 10000;
-    overflow-y: auto;
-    font-family: 'Inter', sans-serif;
+    overflow-y: auto; 
+    background-color: $dark-bg;
     display: none;
-
     &.active {
         display: flex;
         flex-direction: column;
@@ -1676,168 +1676,13 @@ $border-light: rgba(255, 255, 255, 0.1);
         background: var(--black);
     }
 
-    // .container {
-    //     max-width: 1100px;
-    //     margin: 0 auto;
-    //     padding: 0 20px;
-    // }
+    .container-rez {
+        max-width: 1362px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-    // // --- HEADER ---
-    // header {
-    //     padding: 20px 0;
-    //     border-bottom: 1px solid $border-light;
-        
-    //     .head, .head-mobile {
-    //         display: none;
-    //     }
 
-    //     .search-header, .search-header-mobile {
-    //         display: flex;
-    //         align-items: center;
-    //         justify-content: space-between;
-    //         gap: 20px;
-
-    //         .head_list {
-    //             display: flex;
-    //             align-items: center;
-    //             gap: 20px;
-    //             flex: 1;
-
-    //             .logotype img {
-    //                 width: 60px;
-    //                 height: 60px;
-    //                 border-radius: 50%;
-    //                 object-fit: cover;
-    //             }
-
-    //             .search-form-full {
-    //                 flex: 1;
-    //                 display: flex;
-    //                 align-items: center;
-    //                 gap: 10px;
-
-    //                 .input-wrapper {
-    //                     flex: 1;
-    //                     background: rgba(255, 255, 255, 0.05);
-    //                     border: 1px solid $border-light;
-    //                     border-radius: 8px;
-    //                     padding: 10px 15px;
-    //                     display: flex;
-    //                     align-items: center;
-    //                     gap: 10px;
-
-    //                     span {
-    //                         color: $text-muted;
-    //                     }
-
-    //                     input {
-    //                         background: transparent;
-    //                         border: none;
-    //                         color: white;
-    //                         width: 100%;
-    //                         outline: none;
-    //                         font-size: 14px;
-
-    //                         &::placeholder {
-    //                             color: $text-muted;
-    //                         }
-    //                     }
-    //                 }
-
-    //                 .search-close {
-    //                     background: transparent;
-    //                     border: none;
-    //                     color: $text-muted;
-    //                     font-size: 24px;
-    //                     cursor: pointer;
-    //                     width: 30px;
-    //                     height: 30px;
-    //                     display: flex;
-    //                     align-items: center;
-    //                     justify-content: center;
-    //                     border-radius: 50%;
-
-    //                     &:hover {
-    //                         background: rgba(255, 255, 255, 0.1);
-    //                     }
-    //                 }
-    //             }
-    //         }
-
-    //         .search-submit {
-    //             background: $accent-blue;
-    //             color: white;
-    //             border: none;
-    //             padding: 10px 25px;
-    //             border-radius: 6px;
-    //             font-weight: 500;
-    //             cursor: pointer;
-    //             white-space: nowrap;
-    //             transition: background-color 0.2s;
-
-    //             &:hover {
-    //                 background-color: darken($accent-blue, 10%);
-    //             }
-    //         }
-
-    //         .head_link {
-    //             display: flex;
-    //             align-items: center;
-    //             gap: 20px;
-
-    //             .my_help {
-    //                 background: $accent-blue;
-    //                 color: white;
-    //                 border: none;
-    //                 padding: 10px 20px;
-    //                 border-radius: 6px;
-    //                 font-weight: 500;
-    //                 cursor: pointer;
-    //                 white-space: nowrap;
-    //             }
-
-    //             .range {
-    //                 display: flex;
-    //                 gap: 10px;
-
-    //                 .round {
-    //                     width: 40px;
-    //                     height: 40px;
-    //                     background: rgba(255, 255, 255, 0.1);
-    //                     border-radius: 50%;
-    //                     display: flex;
-    //                     align-items: center;
-    //                     justify-content: center;
-    //                     cursor: pointer;
-
-    //                     span {
-    //                         color: white;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     .search-header-mobile {
-    //         display: none;
-    //     }
-
-    //     @media (max-width: 768px) {
-    //         .search-header {
-    //             display: none !important;
-    //         }
-
-    //         .search-header-mobile {
-    //             display: flex !important;
-
-    //             .head_link {
-    //                 display: none;
-    //             }
-    //         }
-    //     }
-    // }
-
-    // --- MAIN CONTENT ---
     .search-results-main {
         flex: 1;
         padding-top: 40px;
@@ -1913,7 +1758,7 @@ $border-light: rgba(255, 255, 255, 0.1);
             }
         }
 
-        // Пустые результаты
+        
         .search-results-empty {
             display: none;
             flex-direction: column;
@@ -1945,7 +1790,7 @@ $border-light: rgba(255, 255, 255, 0.1);
             }
         }
 
-        // Список результатов
+  
         .search-results-list {
             display: none;
 
@@ -2096,148 +1941,5 @@ $border-light: rgba(255, 255, 255, 0.1);
         }
     }
 
-    // --- FOOTER ---
-    // .footer-section {
-    //     margin-top: 60px;
-    //     padding-bottom: 60px;
 
-    //     .help_money {
-    //         background: rgba(255, 255, 255, 0.03);
-    //         border: 1px solid $accent-blue;
-    //         border-radius: 20px;
-    //         padding: 30px;
-    //         display: flex;
-    //         justify-content: space-between;
-    //         align-items: center;
-    //         margin-bottom: 60px;
-
-    //         @media (max-width: 768px) {
-    //             flex-direction: column;
-    //             gap: 20px;
-    //         }
-
-    //         .money {
-    //             display: flex;
-    //             flex-wrap: wrap;
-    //             gap: 15px;
-    //             align-items: center;
-
-    //             .amount_btn {
-    //                 background: transparent;
-    //                 border: 1px solid $border-light;
-    //                 color: white;
-    //                 padding: 10px 20px;
-    //                 border-radius: 30px;
-    //                 cursor: pointer;
-    //                 transition: all 0.2s;
-
-    //                 &.active {
-    //                     background: $accent-blue;
-    //                     border-color: $accent-blue;
-    //                 }
-
-    //                 &:hover:not(.active) {
-    //                     background: rgba(255, 255, 255, 0.05);
-    //                 }
-    //             }
-
-    //             input {
-    //                 background: transparent;
-    //                 border: 1px solid $border-light;
-    //                 border-radius: 30px;
-    //                 padding: 10px 15px;
-    //                 color: white;
-    //                 width: 140px;
-
-    //                 &::placeholder {
-    //                     color: $text-muted;
-    //                 }
-    //             }
-    //         }
-
-    //         .button_help {
-    //             background: $accent-blue;
-    //             color: white;
-    //             border: none;
-    //             padding: 12px 35px;
-    //             border-radius: 30px;
-    //             font-weight: 600;
-    //             cursor: pointer;
-    //             transition: background-color 0.2s;
-
-    //             &:hover {
-    //                 background-color: darken($accent-blue, 10%);
-    //             }
-    //         }
-    //     }
-
-    //     .footer-main-bg {
-    //         .footer {
-    //             .info_interact {
-    //                 margin-bottom: 40px;
-
-    //                 p {
-    //                     color: $text-muted;
-    //                     line-height: 1.6;
-    //                     margin: 10px 0;
-    //                 }
-
-    //                 a {
-    //                     color: $text-main;
-    //                     text-decoration: none;
-    //                     display: block;
-    //                     margin: 5px 0;
-
-    //                     &:hover {
-    //                         text-decoration: underline;
-    //                     }
-    //                 }
-    //             }
-
-    //             .procent_help {
-    //                 .contact {
-    //                     margin-top: 40px;
-
-    //                     h2 {
-    //                         color: $text-main;
-    //                         margin-bottom: 20px;
-    //                     }
-
-    //                     .num p {
-    //                         color: $text-muted;
-    //                         margin: 5px 0;
-    //                     }
-
-    //                     .connection {
-    //                         margin-top: 20px;
-    //                         display: flex;
-    //                         gap: 10px;
-
-    //                         input {
-    //                             flex: 1;
-    //                             background: rgba(255, 255, 255, 0.05);
-    //                             border: 1px solid $border-light;
-    //                             border-radius: 6px;
-    //                             padding: 10px 15px;
-    //                             color: white;
-
-    //                             &::placeholder {
-    //                                 color: $text-muted;
-    //                             }
-    //                         }
-
-    //                         .subscribe {
-    //                             background: $accent-blue;
-    //                             color: white;
-    //                             border: none;
-    //                             padding: 10px 20px;
-    //                             border-radius: 6px;
-    //                             cursor: pointer;
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 }

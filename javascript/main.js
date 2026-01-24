@@ -298,10 +298,8 @@ if (footerSection) {
 }
 
 
-///////////////
 
-
-// ===== МОДУЛЬ ПОИСКА (РАБОЧАЯ ВЕРСИЯ С ПРАВИЛЬНЫМИ СТИЛЯМИ) =====
+// ===== МОДУЛЬ ПОИСКА (ФИНАЛЬНАЯ ВЕРСИЯ) =====
 class SearchModule {
     constructor() {
         this.resultsPage = document.getElementById('searchResultsPage');
@@ -310,11 +308,7 @@ class SearchModule {
         this.emptyElement = document.getElementById('searchResultsEmpty');
         this.pagination = document.getElementById('searchResultsPagination');
         this.queryText = document.getElementById('searchQueryText');
-        
-        // Ищем ВСЕ инпуты поиска на странице
-        this.searchInputs = document.querySelectorAll('input[type="text"]');
-        this.searchButtons = document.querySelectorAll('.search-submit');
-        this.searchForms = document.querySelectorAll('form');
+        this.header = document.querySelector('header');
         
         this.currentQuery = '';
         this.isLoading = false;
@@ -324,279 +318,161 @@ class SearchModule {
     
     init() {
         this.bindEvents();
-        console.log('Search Module initialized');
+        
+    
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryFromUrl = urlParams.get('query');
+        
+        if (queryFromUrl) {
+            setTimeout(() => {
+                this.performSearch(queryFromUrl);
+                document.querySelectorAll('input[type="text"]').forEach(input => {
+                    input.value = queryFromUrl;
+                });
+            }, 200);
+        }
     }
     
     bindEvents() {
-        // Обработка ВСЕХ кнопок "Найти"
-        this.searchButtons.forEach(button => {
-            button.addEventListener('click', (e) => this.handleSearch(e));
-        });
-        
-        // Обработка Enter во ВСЕХ инпутах
-        this.searchInputs.forEach(input => {
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
+ 
+        document.querySelectorAll('.mingcute--search-line').forEach(icon => {
+            if (!icon.closest('.search-header')) {
+                icon.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.handleSearch(e);
-                }
+                    this.header?.classList.add('search-open');
+                    setTimeout(() => document.getElementById('searchInput')?.focus(), 100);
+                });
+            }
+        });
+
+      
+        document.querySelectorAll('.search-close').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.header?.classList.remove('search-open');
             });
         });
-        
-        // Обработка форм
-        this.searchForms.forEach(form => {
-            form.addEventListener('submit', (e) => this.handleSearch(e));
+
+        document.addEventListener('click', (e) => {
+            const submitBtn = e.target.closest('.search-submit');
+            if (submitBtn) {
+                e.preventDefault();
+                this.handleSearchLogic(submitBtn);
+            }
         });
-        
-        // Кнопка закрытия
-        const closeBtn = document.querySelector('.search-results-header__close');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => this.closeResults());
-        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const input = e.target.closest('input[type="text"]');
+                if (input) {
+                    e.preventDefault();
+                    this.handleSearchLogic(input);
+                }
+            }
+            if (e.key === 'Escape') {
+                this.header?.classList.remove('search-open');
+                this.closeResults();
+            }
+        });
+
+
+        document.querySelector('.search-results-header__close')?.addEventListener('click', () => this.closeResults());
     }
-    
-    handleSearch(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        let searchInput = null;
-        
-        // Находим ближайший инпут к кнопке/форме
-        if (e.target.closest('form')) {
-            const form = e.target.closest('form');
-            searchInput = form.querySelector('input[type="text"]');
-        } else if (e.target.closest('.head_list')) {
-            const headList = e.target.closest('.head_list');
-            searchInput = headList.querySelector('input[type="text"]');
-        } else {
-            // Если не нашли конкретный - берем первый доступный
-            searchInput = document.querySelector('#searchInput, #searchInputMobile, .search-input');
-        }
-        
-        if (searchInput && searchInput.value.trim()) {
-            this.performSearch(searchInput.value.trim());
-        } else {
-            console.warn('Не найден инпут для поиска');
+
+    handleSearchLogic(element) {
+        const container = element.closest('.search-header, .head_list, .search-form-full') || document;
+        const input = container.querySelector('input[type="text"]');
+        const query = input?.value.trim();
+
+        if (query) {
+            if (!window.location.pathname.includes('search-page.html')) {
+                window.location.href = `/pages/search-page.html?query=${encodeURIComponent(query)}`;
+            } else {
+              
+                this.performSearch(query);
+            }
         }
     }
     
     async performSearch(query) {
         if (this.isLoading) return;
-        
         this.currentQuery = query;
         this.isLoading = true;
         
-        // Показываем страницу результатов
+        this.header?.classList.remove('search-open'); 
         this.showResultsPage();
-        
-        // Показываем загрузку
         this.showLoading();
         
-        // Обновляем заголовок
-        if (this.queryText) {
-            this.queryText.textContent = query;
-        }
+        if (this.queryText) this.queryText.textContent = query;
         
         try {
-            // Имитация задержки поиска
-            await new Promise(resolve => setTimeout(resolve, 600));
-            
-            // Получаем результаты
+            await new Promise(resolve => setTimeout(resolve, 600)); 
             const results = this.getMockResults(query);
-            
-            // Отображаем результаты
             this.displayResults(results);
-            
         } catch (error) {
-            console.error('Search error:', error);
             this.showError();
         } finally {
             this.isLoading = false;
         }
     }
-    
+
     getMockResults(query) {
-        const mockResults = [];
-        const baseResult = {
+        return Array(4).fill().map((_, i) => ({
+            id: i + 1,
             date: "12.09.2025",
             title: "Благотворительность рядом с вами",
             description: "Мы верим, что даже маленькое доброе дело способно изменить чью-то жизнь. Вместе мы создаём больше возможностей для помощи тем, кто в ней нуждается."
-        };
-        
-        // Создаем 4 одинаковых результата
-        for (let i = 0; i < 4; i++) {
-            mockResults.push({
-                id: i + 1,
-                number: i + 1,
-                ...baseResult
-            });
-        }
-        
-        return mockResults;
+        }));
     }
-    
+
     showResultsPage() {
         if (this.resultsPage) {
+            this.resultsPage.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            this.resultsPage.classList.add('active');
-            
-            // Прокручиваем в начало
-            setTimeout(() => {
-                this.resultsPage.scrollTop = 0;
-            }, 100);
+            setTimeout(() => this.resultsPage.classList.add('active'), 10);
         }
     }
-    
+
     showLoading() {
-        if (this.loadingElement) {
-            this.loadingElement.style.display = 'block';
-            this.loadingElement.classList.add('visible');
-        }
-        if (this.emptyElement) {
-            this.emptyElement.style.display = 'none';
-            this.emptyElement.classList.remove('visible');
-        }
-        if (this.resultsList) {
-            this.resultsList.style.display = 'none';
-            this.resultsList.classList.remove('visible');
-            this.resultsList.innerHTML = '';
-        }
-        if (this.pagination) {
-            this.pagination.style.display = 'none';
-            this.pagination.classList.remove('visible');
-        }
+        if (this.loadingElement) this.loadingElement.style.display = 'block';
+        if (this.resultsList) this.resultsList.style.display = 'none';
+        if (this.emptyElement) this.emptyElement.style.display = 'none';
     }
-    
+
     displayResults(results) {
-        // Скрываем загрузку
-        if (this.loadingElement) {
-            this.loadingElement.style.display = 'none';
-            this.loadingElement.classList.remove('visible');
-        }
-        
+        if (this.loadingElement) this.loadingElement.style.display = 'none';
         if (results.length === 0) {
-            // Показываем "ничего не найдено"
-            if (this.emptyElement) {
-                this.emptyElement.style.display = 'block';
-                this.emptyElement.classList.add('visible');
-            }
+            if (this.emptyElement) this.emptyElement.style.display = 'block';
             return;
         }
-        
-        // Отображаем результаты с ПРАВИЛЬНЫМИ КЛАССАМИ
         if (this.resultsList) {
             this.resultsList.style.display = 'block';
-            this.resultsList.classList.add('visible');
-            this.resultsList.innerHTML = this.generateResultsHTML(results);
-        }
-        
-        // Показываем пагинацию
-        if (this.pagination) {
-            this.pagination.style.display = 'flex';
-            this.pagination.classList.add('visible');
-        }
-    }
-    
-    generateResultsHTML(results) {
-        // ВАЖНО: Используем правильные классы из вашего SCSS
-        return results.map(result => `
-            <div class="result-item">
-                <div class="res-date">${result.date}</div>
-                <div class="res-content">
-                    <h2>${this.highlightQuery(result.title, this.currentQuery)}</h2>
-                    <p>${this.highlightQuery(result.description, this.currentQuery)}</p>
-                </div>
-            </div>
-        `).join('');
-    }
-    
-    highlightQuery(text, query) {
-        if (!query || typeof text !== 'string') return text;
-        
-        const regex = new RegExp(`(${this.escapeRegex(query)})`, 'gi');
-        return text.replace(regex, '<span class="highlight">$1</span>');
-    }
-    
-    escapeRegex(string) {
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
-    
-    showError() {
-        if (this.loadingElement) {
-            this.loadingElement.style.display = 'none';
-            this.loadingElement.classList.remove('visible');
-        }
-        
-        if (this.resultsList) {
-            this.resultsList.style.display = 'block';
-            this.resultsList.classList.add('visible');
-            this.resultsList.innerHTML = `
+            this.resultsList.innerHTML = results.map(res => `
                 <div class="result-item">
-                    <div class="res-date">${new Date().toLocaleDateString()}</div>
+                    <div class="res-date">${res.date}</div>
                     <div class="res-content">
-                        <h2>Ошибка поиска</h2>
-                        <p>Произошла ошибка при выполнении поиска. Пожалуйста, попробуйте позже.</p>
+                        <h2>${res.title}</h2>
+                        <p>${res.description}</p>
                     </div>
                 </div>
-            `;
+            `).join('');
         }
     }
-    
+
     closeResults() {
         if (this.resultsPage) {
             this.resultsPage.classList.remove('active');
+            setTimeout(() => this.resultsPage.style.display = 'none', 300);
             document.body.style.overflow = '';
         }
     }
-}
 
-// ===== ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ =====
-document.addEventListener('DOMContentLoaded', () => {
-    // Создаем экземпляр модуля поиска
-    const searchModule = new SearchModule();
-    
-    // Экспортируем для глобального доступа
-    window.searchModule = searchModule;
-    
-    console.log('✅ Поиск инициализирован');
-    console.log('Доступные функции:');
-    console.log('1. window.searchModule.performSearch("ваш запрос")');
-    console.log('2. Нажмите кнопку "Найти" на любом поиске');
-    console.log('3. Нажмите Enter в любом поле поиска');
-});
-
-// ===== ДОПОЛНИТЕЛЬНЫЙ КОД ДЛЯ ОТЛАДКИ СТИЛЕЙ =====
-function checkSearchStyles() {
-    console.log('=== ПРОВЕРКА СТИЛЕЙ ПОИСКА ===');
-    
-    const resultsPage = document.getElementById('searchResultsPage');
-    if (!resultsPage) {
-        console.error('❌ Нет элемента searchResultsPage');
-        return;
+    showError() {
+        if (this.loadingElement) this.loadingElement.style.display = 'none';
+        alert("Ошибка поиска");
     }
-    
-    // Проверяем CSS стили
-    const styles = window.getComputedStyle(resultsPage);
-    console.log('Страница результатов:', {
-        display: styles.display,
-        position: styles.position,
-        background: styles.backgroundColor
-    });
-    
-    // Проверяем структуру
-    const resultItems = document.querySelectorAll('.result-item');
-    console.log('Найдено элементов:', resultItems.length);
-    
-    resultItems.forEach((item, index) => {
-        const itemStyles = window.getComputedStyle(item);
-        console.log(`Элемент ${index + 1}:`, {
-            display: itemStyles.display,
-            flexDirection: itemStyles.flexDirection,
-            padding: itemStyles.padding,
-            borderBottom: itemStyles.borderBottom
-        });
-    });
 }
 
-// Запускаем проверку через 2 секунды после загрузки
-setTimeout(checkSearchStyles, 2000);
+document.addEventListener('DOMContentLoaded', () => {
+    window.searchModule = new SearchModule();
+});
