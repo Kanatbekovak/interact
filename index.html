@@ -815,23 +815,245 @@
         </div> 
  
 
-        <div class="burger-overlay" id="burgerOverlay"></div>
+        <!-- <div class="burger-overlay" id="burgerOverlay"></div> -->
+        <div class="burger-menu-right" id="burgerMenu">
+            <div class="burger-header">
+                <img src="./images_main/logotype.png" alt="logo">
+                <button class="close-burger">&times;</button>
+            </div>
+            <nav class="burger-nav">
+                <a href="#">О нас</a>
+                <a href="#">Проекты</a>
+                <a href="#">Спонсорство</a>
+                <a href="#">Волонтёрство</a>
+                <hr>
+                <a href="#" class="account-link">Личный кабинет</a>
+            </nav>
+        </div>
 
-<div class="burger-menu-right" id="burgerMenu">
-    <div class="burger-header">
-        <img src="./images_main/logotype.png" alt="logo">
-        <button class="close-burger">&times;</button>
+        <!-- Страница результатов поиска -->
+    <div id="searchResultsPage" class="search-results-page">
+        <div class="search-results-container">
+            <header>  
+            <div class="container head">
+                <div class="head_list">
+                    <div class="logotype">
+                        <a href="./index.html">
+                            <img src="./images_main/logotype.png" alt="interact">
+                        </a>
+                    </div>
+                    <div class="menu">
+                        <nav>
+                            <ul class="menu_list">
+                                <li><a href="./pages/">О нас</a></li>
+                                <li><a href="./pages/">Проекты</a></li>
+                                <li><a href="./pages/">Спонсорство</a></li>
+                                <li><a href="./pages/">Волонтёрство</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="head_link">
+                    <button class="my_help">Хочу помочь</button>
+                    <div class="range">
+                        <div class="round">
+                            <span class="mingcute--search-line"></span>
+                        </div>
+                        <div class="round">
+                            <span class="mdi--user"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" container head-mobile">
+                <div class="head_list">
+                    <div class="logotype">
+                        <a href="./index.html">
+                            <img src="./images_main/logotype.png" alt="interact">
+                        </a>
+                    </div>
+                </div>
+                <div class="head_link">
+                    <button class="my_help">Хочу помочь</button>
+                    <div class="range">
+                        <div class="round">
+                            <span class="mingcute--search-line"></span>
+                        </div>
+                        <div class="round">
+                            <span class="material-symbols--menu-rounded"></span>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="container search-header" id="searchBar">
+                <div class="head_list">
+                    <div class="logotype">
+                        <a href="./index.html">
+                            <img src="./images_main/logotype.png" alt="interact">
+                        </a>
+                    </div>
+                    <form class="search-form-full">
+                        <div class="input-wrapper">
+                            <span class="mingcute--search-line"></span> <input type="text" placeholder="Поиск..." id="searchInput" autocomplete="off">
+                        </div>
+                        <button class="search-close" id="closeSearch" type="button">&times;</button>
+                    </form>
+                    <button type="submit" class="search-submit">Найти</button>
+                </div>
+                <div class="head_link">
+                    <button class="my_help">Хочу помочь</button>
+                    <div class="range">
+                        <div class="round">
+                            <span class="mingcute--search-line"></span>
+                        </div>
+                        <div class="round">
+                            <span class="mdi--user"></span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="container search-header-mobile" id="searchBar-mobile">
+                <div class="head_list">
+                    <form class="search-form-full">
+                        <div class="input-wrapper">
+                            <span class="mingcute--search-line"></span> <input type="text" placeholder="Поиск..." id="searchInput" autocomplete="off">
+                        </div>
+                        <button class="search-close" id="closeSearch" type="button">&times;</button>
+                    </form>
+                    <button type="submit" class="search-submit">Найти</button>
+                </div>
+            </div>
+
+            </header>
+
+            <main class="search-results-main">
+                <div class="container">
+                    <div class="search-results-content" id="searchResultsContent">
+                        <!-- Состояние загрузки -->
+                        <div class="search-results-loading" id="searchResultsLoading">
+                            <div class="loading-spinner"></div>
+                            <p>Ищем результаты...</p>
+                        </div>
+                        
+                        <!-- Состояние "нет результатов" -->
+                        <div class="search-results-empty" id="searchResultsEmpty">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <h3>Ничего не найдено</h3>
+                            <p>Попробуйте изменить поисковый запрос</p>
+                        </div>
+                        
+                        <!-- Список результатов -->
+                        <span class="mingcute--search-line"></span> <input type="text" placeholder="Поиск" id="searchInputnearresult" autocomplete="off">
+                        <div class="search-results-list" id="searchResultsList"></div>
+                        </div>
+                    
+                    <!-- Пагинация -->
+                    <div class="search-results-pagination" id="searchResultsPagination">
+                        <button class="pagination-btn pagination-prev" disabled>
+                            <svg width="16" height="16" viewBox="0 0 24 24">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            Назад
+                        </button>
+                        <div class="pagination-pages"></div>
+                        <button class="pagination-btn pagination-next">
+                            Далее
+                            <svg width="16" height="16" viewBox="0 0 24 24">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="footer-section">
+            <div class="help_money">
+                <div class="money">
+                    <button class="amount_btn">200 сом</button>
+                    <button class="amount_btn">500 сом</button>
+                    <button class="amount_btn active">1000 сом</button>
+                    <button class="amount_btn">5000 сом</button>
+                    <input type="text" placeholder="Другая сумма">
+                </div>
+                <button class="button_help">Хочу помочь</button>
+            </div>
+
+            <div class="footer-main-bg">
+                <div class="container footer">
+                    
+                    <div class="info_interact">
+                        <div class="logotype">
+                            <a href="./index.html">
+                                <img src="./images_main/logotype.png" alt="interact">
+                            </a>
+                            <p>Улица Старинная, дом 47, кв. 12 <br> г. Новоград, Московская область Россия, 143582</p>
+                        </div>
+                        <div class="recvizite">
+                            <p>2025 (С) Мост Милосердия</p>
+                            <a href="#">Политика конфиденциальности</a>
+                            <a href="#">Условия оферты</a>
+                            <p class="bank-details">Банковские реквизиты (но тут они будут сразу прописаны подряд)</p>
+                        </div>
+                    </div>
+
+                    <div class="menu">
+                        <nav>
+                            <ul class="menu_list">
+                                <li><a href="./pages/">О нас</a></li>
+                                <li><a href="./pages/">Проекты</a></li>
+                                <li><a href="./pages/">Спонсорство</a></li>
+                                <li><a href="./pages/">Волонтёрство</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="procent_help">
+                        <div class="diagram_box">
+                            <div class="diagram-wrapper">
+                                <div class="pie-chart"></div> 
+                                <span class="pie-label">75%</span>
+                            </div>
+                            <div class="text_procent">
+                                <p>На что идут собранные средства?</p>
+                                <div class="prosent_list">
+                                    <p>75% На программу поддержки семей</p>
+                                    <p>75% На программу поддержки семей</p>
+                                    <p>75% На программу поддержки семей</p>
+                                    <p>75% На программу поддержки семей</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact">
+                            <div class="contact_text">
+                                <h2>Контакты для сотрудничества</h2>
+                                <div class="num">
+                                    <p>info@mail.com</p>
+                                    <p>+0 (000) 000-00-00</p>
+                                </div>
+                                <div class="social-row">
+                                    <button class="social_media"><span class="mdi--instagram"></span></button>
+                                    <button class="social_media"><span class="basil--telegram-outline"></span></button>
+                                    <button class="social_media"><span class="ic--baseline-whatsapp"></span></button>
+                                </div>
+                            </div>
+                            <div class="connection">
+                                <input type="text" placeholder="Рассылка на почту">
+                                <button class="subscribe">Подписаться</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </footer>
+            
+        </div>
     </div>
-    <nav class="burger-nav">
-        <a href="#">О нас</a>
-        <a href="#">Проекты</a>
-        <a href="#">Спонсорство</a>
-        <a href="#">Волонтёрство</a>
-        <hr>
-        <a href="#" class="account-link">Личный кабинет</a>
-    </nav>
-</div>
-
 
 </body>
 
