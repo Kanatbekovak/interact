@@ -186,6 +186,11 @@
   z-index: 5;
   margin: -100px auto 0;
 }
+@media (max-width: 780px) {
+  .result-section {
+    margin: -50px auto 0;
+  }
+}
 .result-section .results {
   display: flex;
   flex-direction: column;
@@ -787,7 +792,7 @@
   color: var(--black);
   margin: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .mission-section .mission_wrapper .mission_info h5 {
     font-size: 16px;
   }

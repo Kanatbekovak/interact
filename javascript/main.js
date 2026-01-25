@@ -12,7 +12,7 @@ faqItems.forEach(item => {
 
 // --- 2. МОДАЛКА ПОЖЕРТВОВАНИЙ (DONATE) ---
 const donateModal = document.getElementById('invitationModal');
-const openDonateBtns = document.querySelectorAll('.my_help, .results_button');
+const openDonateBtns = document.querySelectorAll('my_help, .results_button');
 const closeDonateBtn = document.getElementById('closeModal');
 const donateSubmitBtn = document.getElementById('donate');
 const moneyBtns = document.querySelectorAll('.moneyfff');
@@ -136,22 +136,21 @@ if (document.getElementById('successVolun')) {
 // --- 4. ПОИСК В ХЕДЕРЕ (ОБНОВЛЕННЫЙ КОД) ---
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Инициализация поиска...');
-    
-    // Находим элементы
+  
     const header = document.querySelector('header');
     const searchIcons = document.querySelectorAll('.mingcute--search-line');
     const closeButtons = document.querySelectorAll('.search-close');
     
     console.log(`Найдено: ${searchIcons.length} иконок поиска, ${closeButtons.length} кнопок закрытия`);
     
-    // Функция открытия поиска
+ 
     const openSearch = (e) => {
         e.preventDefault();
         e.stopPropagation();
         console.log('Открываем поиск');
         if (header) header.classList.add('search-open');
         
-        // Фокус на поле ввода
+       
         setTimeout(() => {
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
@@ -160,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
     };
     
-    // Функция закрытия поиска
+  
     const closeSearch = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -168,30 +167,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (header) header.classList.remove('search-open');
     };
     
-    // Назначаем обработчики на иконки поиска
+
     searchIcons.forEach((icon, index) => {
-        // Проверяем, что иконка не внутри уже открытого поиска
+        
         const parentContainer = icon.closest('.search-header, .search-header-mobile');
         if (!parentContainer) {
             icon.addEventListener('click', openSearch);
             console.log(`Обработчик добавлен на иконку поиска #${index}`);
         }
     });
-    
-    // Назначаем обработчики на кнопки закрытия
+
     closeButtons.forEach((button, index) => {
         button.addEventListener('click', closeSearch);
         console.log(`Обработчик добавлен на кнопку закрытия #${index}`);
     });
     
-    // Закрытие по ESC
+    
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && header && header.classList.contains('search-open')) {
             header.classList.remove('search-open');
         }
     });
-    
-    // Обработка форм поиска
+  
     const searchForms = document.querySelectorAll('.search-form-full');
     console.log(`Найдено форм: ${searchForms.length}`);
     
@@ -210,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Обработка кнопок "Найти"
+
     const searchSubmitButtons = document.querySelectorAll('.search-submit');
     console.log(`Найдено кнопок "Найти": ${searchSubmitButtons.length}`);
     
@@ -475,4 +472,48 @@ class SearchModule {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.searchModule = new SearchModule();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchPage = document.getElementById('searchResultsPage');
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearch');
+    const resultsList = document.getElementById('searchResultsList');
+
+    // 1. ФУНКЦИЯ ПОИСКА
+    function performSearch(query) {
+        if (!query.trim()) {
+            resultsList.innerHTML = '';
+            return;
+        }
+        console.log("Ищем:", query);
+        // Здесь твой код отрисовки результатов (fetch или фильтрация)
+        // resultsList.innerHTML = '... результаты ...';
+    }
+
+    // 2. СЛУШАТЕЛЬ ВВОДА (Поиск при печати)
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const value = e.target.value;
+            
+            // Показываем/скрываем крестик
+            clearBtn.style.display = value.length > 0 ? 'flex' : 'none';
+            
+            // Запускаем поиск
+            performSearch(value);
+        });
+    }
+
+    // 3. ФУНКЦИЯ ВЫХОДА (Крестик)
+    if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+        // 1. Очищаем инпут
+        searchInput.value = '';
+        
+        // 2. Редирект на главную страницу
+        window.location.href = '../index.html'; // Укажи правильный путь к файлу
+    });
+
+    }
 });

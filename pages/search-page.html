@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="head_link">
-                    <button class="my_help">Хочу помочь</button>
+                    <button class="my_help" >Хочу помочь</button>
                     <div class="range">
                         <div class="round">
                             <span class="mingcute--search-line"></span>
@@ -125,12 +125,17 @@
                         </div>
                         
                     
-                        <span class="mingcute--search-line"></span> <input type="text" placeholder="Поиск" id="searchInputnearresult" autocomplete="off">
-                        <div class="search-results-list" id="searchResultsList"></div>
+                        <!-- <span class="mingcute--search-line"></span> <input type="text" placeholder="Поиск" id="searchInputnearresult" autocomplete="off">
+                        <div class="search-results-list" id="searchResultsList"></div></div> -->
+                        
+                        <div class="input-wrapper">
+                            <span class="mingcute--search-line search-icon"></span> 
+                            <input type="text" placeholder="Поиск..." id="searchInput" autocomplete="off">
+                            <button type="button" class="clear-search" id="clearSearch">&times;</button>
                         </div>
-                    
+                        <div class="search-results-list" id="searchResultsList"></div></div> 
                   
-                    <div class="search-results-pagination" id="searchResultsPagination">
+                    <!-- <div class="search-results-pagination" id="searchResultsPagination">
                         <button class="pagination-btn pagination-prev" disabled>
                             <svg width="16" height="16" viewBox="0 0 24 24">
                                 <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -144,7 +149,7 @@
                                 <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" fill="none"/>
                             </svg>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </main>
 
